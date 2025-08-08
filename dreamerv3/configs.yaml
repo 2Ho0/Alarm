@@ -152,6 +152,15 @@ size400m: &size400m
   .*\.depth: 96
   .*\.units: 1536
 
+minigrid:
+  task: MiniGrid-DoorKey-8x8
+  run:
+    steps: 1e6
+    train_ratio: 64
+    envs: 4
+  batch_size: 16
+  batch_length: 64
+
 minecraft:
   task: minecraft_diamond
 

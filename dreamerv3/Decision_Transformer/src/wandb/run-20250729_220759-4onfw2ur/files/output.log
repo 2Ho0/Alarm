@@ -1,0 +1,45 @@
+/home/hail/anaconda3/envs/dt/lib/python3.9/site-packages/plotly/express/_core.py:1979: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
+  sf: grouped.get_group(s if len(s) > 1 else s[0])
+Class Weights: [1.02012764 0.87965651 1.13260142]
+✅ Will update: action_embedding.0.weight
+✅ Will update: time_embedding.weight
+✅ Will update: state_embedding.weight
+✅ Will update: transformer.pos_embed.W_pos
+✅ Will update: transformer.blocks.0.attn.W_Q
+✅ Will update: transformer.blocks.0.attn.W_K
+✅ Will update: transformer.blocks.0.attn.W_V
+✅ Will update: transformer.blocks.0.attn.W_O
+✅ Will update: transformer.blocks.0.attn.b_Q
+✅ Will update: transformer.blocks.0.attn.b_K
+✅ Will update: transformer.blocks.0.attn.b_V
+✅ Will update: transformer.blocks.0.attn.b_O
+✅ Will update: transformer.blocks.0.mlp.W_in
+✅ Will update: transformer.blocks.0.mlp.b_in
+✅ Will update: transformer.blocks.0.mlp.W_out
+✅ Will update: transformer.blocks.0.mlp.b_out
+✅ Will update: transformer.blocks.1.attn.W_Q
+✅ Will update: transformer.blocks.1.attn.W_K
+✅ Will update: transformer.blocks.1.attn.W_V
+✅ Will update: transformer.blocks.1.attn.W_O
+✅ Will update: transformer.blocks.1.attn.b_Q
+✅ Will update: transformer.blocks.1.attn.b_K
+✅ Will update: transformer.blocks.1.attn.b_V
+✅ Will update: transformer.blocks.1.attn.b_O
+✅ Will update: transformer.blocks.1.mlp.W_in
+✅ Will update: transformer.blocks.1.mlp.b_in
+✅ Will update: transformer.blocks.1.mlp.W_out
+✅ Will update: transformer.blocks.1.mlp.b_out
+✅ Will update: action_predictor.weight
+✅ Will update: action_predictor.bias
+✅ Will update: state_predictor.weight
+✅ Will update: state_predictor.bias
+✅ Will update: reward_embedding.0.weight
+✅ Will update: reward_predictor.weight
+✅ Will update: reward_predictor.bias
+✅ Will update: penultimate_layer.0.weight
+✅ Will update: penultimate_layer.0.bias
+✅ Will update: output_layer.0.weight
+✅ Will update: output_layer.0.bias
+===== 태스크별 데이터셋 크기 =====
+Task task_0: 31684 샘플
+Task task_1: 36745 샘플

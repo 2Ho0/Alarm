@@ -1,0 +1,165 @@
+2025-05-08 13:15:20,830 INFO    StreamThr :25402 [internal.py:wandb_internal():87] W&B internal server running at pid: 25402, started at: 2025-05-08 13:15:20.829503
+2025-05-08 13:15:20,833 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: status
+2025-05-08 13:15:20,835 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: status
+2025-05-08 13:15:20,836 DEBUG   SenderThread:25402 [sender.py:send():303] send: header
+2025-05-08 13:15:20,836 INFO    WriterThread:25402 [datastore.py:open_for_write():75] open: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/run-6tez6yfa.wandb
+2025-05-08 13:15:20,845 DEBUG   SenderThread:25402 [sender.py:send():303] send: run
+2025-05-08 13:15:21,707 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: check_version
+2025-05-08 13:15:21,713 INFO    SenderThread:25402 [dir_watcher.py:__init__():216] watching files in: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files
+2025-05-08 13:15:21,713 INFO    SenderThread:25402 [sender.py:_start_run_threads():928] run started: 6tez6yfa with start time 1746677720.82583
+2025-05-08 13:15:21,713 DEBUG   SenderThread:25402 [sender.py:send():303] send: summary
+2025-05-08 13:15:21,713 INFO    SenderThread:25402 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2025-05-08 13:15:21,714 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: check_version
+2025-05-08 13:15:21,801 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: run_start
+2025-05-08 13:15:21,808 DEBUG   HandlerThread:25402 [system_info.py:__init__():31] System info init
+2025-05-08 13:15:21,808 DEBUG   HandlerThread:25402 [system_info.py:__init__():46] System info init done
+2025-05-08 13:15:21,808 INFO    HandlerThread:25402 [system_monitor.py:start():150] Starting system monitor
+2025-05-08 13:15:21,808 INFO    SystemMonitor:25402 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2025-05-08 13:15:21,808 INFO    HandlerThread:25402 [system_monitor.py:probe():171] Collecting system info
+2025-05-08 13:15:21,809 INFO    SystemMonitor:25402 [interfaces.py:start():168] Started cpu
+2025-05-08 13:15:21,810 INFO    SystemMonitor:25402 [interfaces.py:start():168] Started disk
+2025-05-08 13:15:21,811 INFO    SystemMonitor:25402 [interfaces.py:start():168] Started gpu
+2025-05-08 13:15:21,811 INFO    SystemMonitor:25402 [interfaces.py:start():168] Started memory
+2025-05-08 13:15:21,812 INFO    SystemMonitor:25402 [interfaces.py:start():168] Started network
+2025-05-08 13:15:21,820 DEBUG   HandlerThread:25402 [system_info.py:probe():195] Probing system
+2025-05-08 13:15:21,827 DEBUG   HandlerThread:25402 [system_info.py:_probe_git():180] Probing git
+2025-05-08 13:15:21,838 DEBUG   HandlerThread:25402 [system_info.py:_probe_git():188] Probing git done
+2025-05-08 13:15:21,838 DEBUG   HandlerThread:25402 [system_info.py:probe():241] Probing system done
+2025-05-08 13:15:21,838 DEBUG   HandlerThread:25402 [system_monitor.py:probe():180] {'os': 'Linux-6.11.0-25-generic-x86_64-with-glibc2.39', 'python': '3.9.0', 'heartbeatAt': '2025-05-08T04:15:21.820829', 'startedAt': '2025-05-08T04:15:20.812283', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/hail/DT/src/run_decision_transformer_local.py', 'codePath': 'src/run_decision_transformer_local.py', 'git': {'remote': 'https://github.com/2Ho0/DT.git', 'commit': '1baf25fdc97856fe4983f1faff0d31c6937452fc'}, 'email': 'mwilliam55@naver.com', 'root': '/home/hail/DT', 'host': 'hail-4060ti-2', 'username': 'hail', 'executable': '/home/hail/anaconda3/envs/dt/bin/python', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3072.1372499999998, 'min': 800.0, 'max': 4400.0}, 'cpu_freq_per_core': [{'current': 800.0, 'min': 800.0, 'max': 4400.0}, {'current': 937.935, 'min': 800.0, 'max': 4400.0}, {'current': 2516.167, 'min': 800.0, 'max': 4400.0}, {'current': 800.0, 'min': 800.0, 'max': 4400.0}, {'current': 2986.407, 'min': 800.0, 'max': 4400.0}, {'current': 2921.376, 'min': 800.0, 'max': 4400.0}, {'current': 798.879, 'min': 800.0, 'max': 4400.0}, {'current': 800.0, 'min': 800.0, 'max': 4400.0}, {'current': 800.0, 'min': 800.0, 'max': 4400.0}, {'current': 4000.0, 'min': 800.0, 'max': 4400.0}, {'current': 1000.268, 'min': 800.0, 'max': 4400.0}, {'current': 799.158, 'min': 800.0, 'max': 4400.0}], 'disk': {'total': 250.05871200561523, 'used': 20.800655364990234}, 'gpu': 'NVIDIA GeForce RTX 4060 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4060 Ti', 'memory_total': 17175674880}], 'memory': {'total': 62.61302947998047}}
+2025-05-08 13:15:21,838 INFO    HandlerThread:25402 [system_monitor.py:probe():181] Finished collecting system info
+2025-05-08 13:15:21,838 INFO    HandlerThread:25402 [system_monitor.py:probe():184] Publishing system info
+2025-05-08 13:15:21,839 DEBUG   HandlerThread:25402 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2025-05-08 13:15:21,840 DEBUG   HandlerThread:25402 [system_info.py:_save_pip():67] Saving pip packages done
+2025-05-08 13:15:21,840 DEBUG   HandlerThread:25402 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2025-05-08 13:15:22,716 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/wandb-summary.json
+2025-05-08 13:15:22,716 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/conda-environment.yaml
+2025-05-08 13:15:22,716 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/requirements.txt
+2025-05-08 13:15:27,129 DEBUG   HandlerThread:25402 [system_info.py:_save_conda():86] Saving conda packages done
+2025-05-08 13:15:27,135 INFO    HandlerThread:25402 [system_monitor.py:probe():186] Finished publishing system info
+2025-05-08 13:15:27,138 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:15:27,138 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:15:27,532 DEBUG   SenderThread:25402 [sender.py:send():303] send: telemetry
+2025-05-08 13:15:27,532 DEBUG   SenderThread:25402 [sender.py:send():303] send: files
+2025-05-08 13:15:27,532 INFO    SenderThread:25402 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2025-05-08 13:15:27,599 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: partial_history
+2025-05-08 13:15:27,599 DEBUG   SenderThread:25402 [sender.py:send():303] send: files
+2025-05-08 13:15:27,600 INFO    SenderThread:25402 [sender.py:_save_file():1171] saving file media/plotly/dataset/reward_over_time_0_c5c35a7b53549b6f4216.plotly.json with policy now
+2025-05-08 13:15:27,600 DEBUG   SenderThread:25402 [sender.py:send():303] send: history
+2025-05-08 13:15:27,600 DEBUG   SenderThread:25402 [sender.py:send():303] send: summary
+2025-05-08 13:15:27,605 INFO    SenderThread:25402 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2025-05-08 13:15:27,719 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/wandb-summary.json
+2025-05-08 13:15:27,720 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/conda-environment.yaml
+2025-05-08 13:15:27,720 DEBUG   SenderThread:25402 [sender.py:send():303] send: files
+2025-05-08 13:15:27,721 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: partial_history
+2025-05-08 13:15:27,721 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/wandb-metadata.json
+2025-05-08 13:15:27,721 INFO    SenderThread:25402 [sender.py:_save_file():1171] saving file media/plotly/dataset/base_action_frequencies_1_0b96636118d616faf608.plotly.json with policy now
+2025-05-08 13:15:27,721 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: partial_history
+2025-05-08 13:15:27,722 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/media/plotly/dataset/reward_over_time_0_c5c35a7b53549b6f4216.plotly.json
+2025-05-08 13:15:27,723 DEBUG   SenderThread:25402 [sender.py:send():303] send: history
+2025-05-08 13:15:27,723 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/media/plotly/dataset
+2025-05-08 13:15:27,723 DEBUG   SenderThread:25402 [sender.py:send():303] send: summary
+2025-05-08 13:15:27,723 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/media
+2025-05-08 13:15:27,723 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/media/plotly
+2025-05-08 13:15:27,724 INFO    SenderThread:25402 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2025-05-08 13:15:27,724 DEBUG   SenderThread:25402 [sender.py:send():303] send: history
+2025-05-08 13:15:27,724 DEBUG   SenderThread:25402 [sender.py:send():303] send: summary
+2025-05-08 13:15:27,725 INFO    SenderThread:25402 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2025-05-08 13:15:28,721 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/wandb-summary.json
+2025-05-08 13:15:28,722 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/output.log
+2025-05-08 13:15:28,722 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_created():275] file/dir created: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/media/plotly/dataset/base_action_frequencies_1_0b96636118d616faf608.plotly.json
+2025-05-08 13:15:28,723 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/media/plotly/dataset
+2025-05-08 13:15:28,774 INFO    Thread-19 :25402 [upload_job.py:push():143] Uploaded file /tmp/tmp2k_qc1jiwandb/p7xnbues-wandb-metadata.json
+2025-05-08 13:15:28,929 INFO    Thread-21 :25402 [upload_job.py:push():143] Uploaded file /tmp/tmp2k_qc1jiwandb/8pmjxsy2-media/plotly/dataset/base_action_frequencies_1_0b96636118d616faf608.plotly.json
+2025-05-08 13:15:28,941 INFO    Thread-20 :25402 [upload_job.py:push():143] Uploaded file /tmp/tmp2k_qc1jiwandb/npw7u9pz-media/plotly/dataset/reward_over_time_0_c5c35a7b53549b6f4216.plotly.json
+2025-05-08 13:15:30,062 INFO    Thread-22 :25402 [upload_job.py:push():143] Uploaded file /tmp/tmp2k_qc1jiwandb/ady3ipu8-media/plotly/dataset/base_action_frequencies_1_0b96636118d616faf608.plotly.json
+2025-05-08 13:15:30,350 INFO    Thread-23 :25402 [upload_job.py:push():143] Uploaded file /tmp/tmp2k_qc1jiwandb/4jq6gsbs-media/plotly/dataset/reward_over_time_0_c5c35a7b53549b6f4216.plotly.json
+2025-05-08 13:15:30,724 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/output.log
+2025-05-08 13:15:42,563 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:15:42,564 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:15:51,759 INFO    Thread-16 :25402 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/hail/DT/src/wandb/run-20250508_131520-6tez6yfa/files/config.yaml
+2025-05-08 13:15:57,994 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:15:57,995 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:16:13,413 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:16:13,415 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:16:21,813 DEBUG   SystemMonitor:25402 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2025-05-08 13:16:21,818 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:16:28,790 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:16:28,791 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:16:44,225 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:16:44,226 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:16:51,821 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:16:59,628 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:16:59,629 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:17:14,990 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:17:14,991 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:17:21,825 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:17:30,349 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:17:30,350 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:17:45,770 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:17:45,771 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:17:51,828 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:18:01,174 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:18:01,175 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:18:16,511 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:18:16,513 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:18:21,832 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:18:31,962 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:18:31,963 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:18:47,362 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:18:47,363 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:18:51,835 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:19:02,724 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:19:02,725 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:19:18,100 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:19:18,101 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:19:21,839 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:19:33,468 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:19:33,469 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:19:48,861 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:19:48,863 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:19:51,842 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:20:04,192 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:20:04,193 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:20:19,571 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:20:19,572 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:20:21,846 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:20:35,023 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:20:35,024 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:20:50,453 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:20:50,454 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:20:51,845 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:21:05,836 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:21:05,836 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:21:21,231 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:21:21,232 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:21:21,846 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:21:36,609 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:21:36,610 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:21:51,850 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:21:51,984 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:21:51,985 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:22:07,396 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:22:07,397 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:22:21,854 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:22:22,824 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:22:22,825 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:22:38,208 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:22:38,208 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:22:51,857 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:22:53,546 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:22:53,546 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:23:08,934 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:23:08,935 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:23:21,857 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:23:24,388 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:23:24,388 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:23:39,822 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:23:39,823 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:23:51,870 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:23:55,252 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:23:55,253 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:24:10,695 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:24:10,695 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status
+2025-05-08 13:24:21,863 DEBUG   SenderThread:25402 [sender.py:send():303] send: stats
+2025-05-08 13:24:26,103 DEBUG   HandlerThread:25402 [handler.py:handle_request():139] handle_request: stop_status
+2025-05-08 13:24:26,104 DEBUG   SenderThread:25402 [sender.py:send_request():317] send_request: stop_status

@@ -17,41 +17,50 @@ import ruamel.yaml as yaml
 
 
 def main(argv=None):
+# banner 출력 code
   from .agent import Agent
   [elements.print(line) for line in Agent.banner]
 
+# configs.yaml 파일 읽기 code
   configs = elements.Path(folder / 'configs.yaml').read()
   configs = yaml.YAML(typ='safe').load(configs)
-  parsed, other = elements.Flags(configs=['defaults']).parse_known(argv)
-  config = elements.Config(configs['defaults'])
+  
+# CLI 인자 parsing code
+  parsed, other = elements.Flags(configs=['defaults']).parse_known(argv) #--configs 인자를 parsed 변수에 담고, 나머지 인자는 other 변수에 담음(--configs 인자에 아무 것도 없을 시, configs의 defaults 파일을 사용)
+  config = elements.Config(configs['defaults']) # config 변수에 configs.yaml 파일의 defaults 저장
   for name in parsed.configs:
     config = config.update(configs[name])
   config = elements.Flags(config).parse(other)
   config = config.update(logdir=(
       config.logdir.format(timestamp=elements.timestamp())))
 
+# 분산 학습 환경 시, 노드 번호 설정 code
   if 'JOB_COMPLETION_INDEX' in os.environ:
     config = config.update(replica=int(os.environ['JOB_COMPLETION_INDEX']))
   print('Replica:', config.replica, '/', config.replicas)
 
-  logdir = elements.Path(config.logdir)
-  print('Logdir:', logdir)
-  print('Run script:', config.script)
+# 로그 저장 경로 설정 code
+  logdir = elements.Path(config.logdir) # logdir 변수에 config.logdir(log 저장 경로) 저장
+  print('Logdir:', logdir) # logdir 출력
+  print('Run script:', config.script) # 사용자가 선택한 train, test, eval, parallel, parallel_env, parallel_envs, parallel_replay 모드 출력
+  # 사용자가 선택한 모드가 train, test, eval 일 때, logdir 생성 및 config.yaml 파일 저장
   if not config.script.endswith(('_env', '_replay')):
-    logdir.mkdir()
-    config.save(logdir / 'config.yaml')
-
+    logdir.mkdir() # logdir 생성
+    config.save(logdir / 'config.yaml') # config.yaml 파일 저장
+  # 로그 타이머 설정 code (config.logger.timer 값에 따라 로그 타이머 활성화 여부 결정)
   def init():
-    elements.timer.global_timer.enabled = config.logger.timer
+    elements.timer.global_timer.enabled = config.logger.timer 
 
+# Dreamer에서 실험 실행 환경을 설정하고,서버-클라이언트 기반 인터페이스 (예: 원격 디버깅, 시각화, 동기화 등)를 제공하는 유틸리티 프레임워크 code
   portal.setup(
-      errfile=config.errfile and logdir / 'error',
-      clientkw=dict(logging_color='cyan'),
-      serverkw=dict(logging_color='cyan'),
-      initfns=[init],
-      ipv6=config.ipv6,
+      errfile=config.errfile and logdir / 'error', #config.errfile 값이 True일 때, logdir / 'error' 경로에 에러 로그 저장
+      clientkw=dict(logging_color='cyan'), # 클라이언트 로그 색상 설정
+      serverkw=dict(logging_color='cyan'), # 서버 로그 색상 설정
+      initfns=[init], # 초기화 함수 설정  
+      ipv6=config.ipv6, # IPv6 사용 여부 설정
   )
 
+# train, test, eval등의 함수에 들어갈 인자 설정 code
   args = elements.Config(
       **config.run,
       replica=config.replica,
@@ -65,11 +74,26 @@ def main(argv=None):
       replay_context=config.replay_context,
   )
 
+  # TaskManager 초기화 (연속 학습)
+  task_manager = None
+  if config.get('task_manager', {}).get('enabled', False):
+    from .task_manager import TaskManager
+    task_manager = TaskManager(
+        domain=config.task_manager.domain,
+        tasks=config.task_manager.tasks,
+        strategy=config.task_manager.strategy,
+        switch_interval=config.task_manager.switch_interval,
+        random_seed=config.task_manager.get('random_seed', 42),
+        curriculum_order=config.task_manager.get('curriculum_order', [])
+    )
+    print(f"TaskManager initialized: {task_manager.get_stats()}")
+
+# 각 모드에 따라 함수 실행 code (bind 함수는 함수와 인자를 인자로 받아 해당 함수에 입력 인자를 인자로 하여 실행하는 새로운 함수를 반환하는 함수)
   if config.script == 'train':
     embodied.run.train(
         bind(make_agent, config),
         bind(make_replay, config, 'replay'),
-        bind(make_env, config),
+        bind(make_env, config, task_manager=task_manager),
         bind(make_stream, config),
         bind(make_logger, config),
         args)
@@ -79,8 +103,8 @@ def main(argv=None):
         bind(make_agent, config),
         bind(make_replay, config, 'replay'),
         bind(make_replay, config, 'eval_replay', 'eval'),
-        bind(make_env, config),
-        bind(make_env, config),
+        bind(make_env, config, task_manager=task_manager),
+        bind(make_env, config, task_manager=task_manager),
         bind(make_stream, config),
         bind(make_logger, config),
         args)
@@ -88,7 +112,7 @@ def main(argv=None):
   elif config.script == 'eval_only':
     embodied.run.eval_only(
         bind(make_agent, config),
-        bind(make_env, config),
+        bind(make_env, config, task_manager=task_manager),
         bind(make_logger, config),
         args)
 
@@ -97,8 +121,8 @@ def main(argv=None):
         bind(make_agent, config),
         bind(make_replay, config, 'replay'),
         bind(make_replay, config, 'replay_eval', 'eval'),
-        bind(make_env, config),
-        bind(make_env, config),
+        bind(make_env, config, task_manager=task_manager),
+        bind(make_env, config, task_manager=task_manager),
         bind(make_stream, config),
         bind(make_logger, config),
         args)
@@ -106,12 +130,12 @@ def main(argv=None):
   elif config.script == 'parallel_env':
     is_eval = config.replica >= args.envs
     embodied.run.parallel.parallel_env(
-        bind(make_env, config), config.replica, args, is_eval)
+        bind(make_env, config, task_manager=task_manager), config.replica, args, is_eval)
 
   elif config.script == 'parallel_envs':
     is_eval = config.replica >= args.envs
     embodied.run.parallel.parallel_envs(
-        bind(make_env, config), bind(make_env, config), args)
+        bind(make_env, config, task_manager=task_manager), bind(make_env, config, task_manager=task_manager), args)
 
   elif config.script == 'parallel_replay':
     embodied.run.parallel.parallel_replay(
@@ -210,10 +234,28 @@ def make_replay(config, folder, mode='train'):
 
 
 def make_env(config, index, **overrides):
-  suite, task = config.task.split('_', 1)
+  # TaskManager 지원 - 연속 학습을 위한 동적 태스크 변경
+  task_manager = overrides.pop('task_manager', None)
+  
+  # miniGrid 태스크의 경우, suite를 'minigrid'로 설정
+  task = config.task
+  if 'MiniGrid-' in task:
+      suite = 'minigrid'
+  else:
+      suite = task.split('_', 1)[0]
+  
+  # if task_manager is not None:
+  #   # TaskManager가 있으면 현재 태스크 동적 선택
+  #   suite, task = task_manager.get_current_task_name().split('_', 1)
+  # else:
+  #   # 기존 방식: 고정된 태스크 사용
+  #   suite, task = config.task.split('_', 1) # config.task 변수에서 '_'를 기준으로 문자열을 나누어 suite, task 변수에 저장
   if suite == 'memmaze':
     from embodied.envs import from_gym
     import memory_maze  # noqa
+  
+
+  # ctor dict 중에서 suite 키에 해당하는 값을 ctor 변수에 저장
   ctor = {
       'dummy': 'embodied.envs.dummy:Dummy',
       'gym': 'embodied.envs.from_gym:FromGym',
@@ -231,21 +273,27 @@ def make_env(config, index, **overrides):
       'bsuite': 'embodied.envs.bsuite:BSuite',
       'memmaze': lambda task, **kw: from_gym.FromGym(
           f'MemoryMaze-{task}-v0', **kw),
+      'minigrid': lambda task, **kw: importlib.import_module(
+        'embodied.envs.minigrid').Minigrid(
+            task=task,
+            fully_observable=True,
+            hide_mission=True,
+        ),
   }[suite]
-  if isinstance(ctor, str):
-    module, cls = ctor.split(':')
-    module = importlib.import_module(module)
-    ctor = getattr(module, cls)
-  kwargs = config.env.get(suite, {})
-  kwargs.update(overrides)
-  if kwargs.pop('use_seed', False):
-    kwargs['seed'] = hash((config.seed, index)) % (2 ** 32 - 1)
-  if kwargs.pop('use_logdir', False):
-    kwargs['logdir'] = elements.Path(config.logdir) / f'env{index}'
-  env = ctor(task, **kwargs)
+  if isinstance(ctor, str): # memmaze는 ctor이 문자열이 아닌 lambda 함수이므로, 문자열인 경우에만 처리
+    module, cls = ctor.split(':') # ex) 'embodied.envs.atari:Atari' -> module = 'embodied.envs.atari', cls = 'Atari'
+    module = importlib.import_module(module) # ex) 'embodied.envs.atari' 모듈 임포트
+    ctor = getattr(module, cls) # ex) 'embodied.envs.atari.Atari'(module)에서 Atari(cls) 클래스 가져오기
+  kwargs = config.env.get(suite, {}) # config.env 변수에서 suite 키에 해당하는 값을 kwargs 변수에 저장
+  kwargs.update(overrides) # overrides 변수에 저장된 값을 kwargs 변수에 추가 
+  if kwargs.pop('use_seed', False): # kwargs 변수에서 use_seed 키에 해당하는 값을 제거 및 True 반환, 해당 키가 없을 시 False 반환
+    kwargs['seed'] = hash((config.seed, index)) % (2 ** 32 - 1) # kwargs 딕셔너리에 seed 키에 해당하는 값을 config.seed와 index 값을 해시 함수에 전달하여 32비트 정수로 변환한 값을 2 ** 32 - 1로 나눈 나머지 값으로 설정 
+  if kwargs.pop('use_logdir', False): # kwargs 변수에서 use_logdir 키에 해당하는 값을 제거 및 True 반환, 해당 키가 없을 시 False 반환
+    kwargs['logdir'] = elements.Path(config.logdir) / f'env{index}' # kwargs 딕셔너리에 logdir 키에 해당하는 값을 config.logdir 경로에 f'env{index}' 경로를 추가한 값으로 설정
+  env = ctor(task, **kwargs) # ex) Atari(task, **kwargs) 호출(line 249에서 정의한 클래스 호출)
   return wrap_env(env, config)
 
-
+# make_env 함수에서 반환된 env 객체를 처리하는 함수 code
 def wrap_env(env, config):
   for name, space in env.act_space.items():
     if not space.discrete:

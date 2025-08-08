@@ -1,18 +1,38 @@
+# from_gym.py adapted to work with Gymnasium. Differences:
+#
+# - gym.* -> gymnasium.*
+# - Deals with .step() returning a tuple of (obs, reward, terminated, truncated,
+#   info) rather than (obs, reward, done, info).
+# - Also deals with .reset() returning a tuple of (obs, info) rather than just
+#   obs.
+# - Passes render_mode='rgb_array' to gymnasium.make() rather than .render().
+# - A bunch of minor/irrelevant type checking changes that stopped pyright from
+#   complaining (these have no functional purpose, I'm just a completionist who
+#   doesn't like red squiggles).
+
 import functools
+from typing import Any, Generic, TypeVar, Union, cast, Dict
 
 import elements
 import embodied
-import gym
+import gymnasium
 import numpy as np
 
+'''
+from_gym.py is the env wrapper that adapts a gymnasium env into the embodied.
+'''
 
-class FromGym(embodied.Env):
+U = TypeVar('U')
+V = TypeVar('V')
 
-  def __init__(self, env, obs_key='image', act_key='action', **kwargs):
+
+class FromGymnasium(embodied.Env, Generic[U, V]):
+  def __init__(self, env: Union[str, gymnasium.Env[U, V]], obs_key='image', act_key='action', **kwargs):
     if isinstance(env, str):
-      self._env = gym.make(env, **kwargs)
+      self._env: gymnasium.Env[U, V] = gymnasium.make(env, render_mode="rgb_array", **kwargs)
     else:
       assert not kwargs, kwargs
+      assert env.render_mode == "rgb_array", f"render_mode must be rgb_array, got {self._env.render_mode}"
       self._env = env
     self._obs_dict = hasattr(self._env.observation_space, 'spaces')
     self._act_dict = hasattr(self._env.action_space, 'spaces')
@@ -22,17 +42,16 @@ class FromGym(embodied.Env):
     self._info = None
 
   @property
-  def env(self):
-    return self._env
-
-  @property
   def info(self):
     return self._info
 
   @functools.cached_property
   def obs_space(self):
     if self._obs_dict:
-      spaces = self._flatten(self._env.observation_space.spaces)
+      # cast is here to stop type checkers from complaining (we already check
+      # that .spaces attr exists in __init__ as a proxy for the type check)
+      obs_space = cast(gymnasium.spaces.Dict, self._env.observation_space)
+      spaces = obs_space.spaces
     else:
       spaces = {self._obs_key: self._env.observation_space}
     spaces = {k: self._convert(v) for k, v in spaces.items()}
@@ -47,7 +66,8 @@ class FromGym(embodied.Env):
   @functools.cached_property
   def act_space(self):
     if self._act_dict:
-      spaces = self._flatten(self._env.action_space.spaces)
+      act_space = cast(gymnasium.spaces.Dict, self._env.action_space)
+      spaces = act_space.spaces
     else:
       spaces = {self._act_key: self._env.action_space}
     spaces = {k: self._convert(v) for k, v in spaces.items()}
@@ -57,13 +77,16 @@ class FromGym(embodied.Env):
   def step(self, action):
     if action['reset'] or self._done:
       self._done = False
-      obs = self._env.reset()
+      # we don't bother setting ._info here because it gets set below, once we
+      # take the next .step()
+      obs, _ = self._env.reset()
       return self._obs(obs, 0.0, is_first=True)
     if self._act_dict:
-      action = self._unflatten(action)
+      gymnasium_action = cast(V, self._unflatten(action))
     else:
-      action = action[self._act_key]
-    obs, reward, self._done, self._info = self._env.step(action)
+      gymnasium_action = cast(V, action[self._act_key])
+    obs, reward, terminated, truncated, self._info = self._env.step(gymnasium_action)
+    self._done = terminated or truncated
     return self._obs(
         obs, reward,
         is_last=bool(self._done),
@@ -74,16 +97,16 @@ class FromGym(embodied.Env):
     if not self._obs_dict:
       obs = {self._obs_key: obs}
     obs = self._flatten(obs)
-    obs = {k: np.asarray(v) for k, v in obs.items()}
-    obs.update(
+    np_obs: Dict[str, Any] = {k: np.asarray(v) for k, v in obs.items()}
+    np_obs.update(
         reward=np.float32(reward),
         is_first=is_first,
         is_last=is_last,
         is_terminal=is_terminal)
-    return obs
+    return np_obs
 
   def render(self):
-    image = self._env.render('rgb_array')
+    image = self._env.render()
     assert image is not None
     return image
 
@@ -97,7 +120,7 @@ class FromGym(embodied.Env):
     result = {}
     for key, value in nest.items():
       key = prefix + '/' + key if prefix else key
-      if isinstance(value, gym.spaces.Dict):
+      if isinstance(value, gymnasium.spaces.Dict):
         value = value.spaces
       if isinstance(value, dict):
         result.update(self._flatten(value, key))

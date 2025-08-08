@@ -1,0 +1,1621 @@
+Class Weights: [1.08333333 0.86666667 1.08333333]
+✅ Will update: action_embedding.0.weight
+✅ Will update: time_embedding.weight
+✅ Will update: state_embedding.weight
+✅ Will update: transformer.pos_embed.W_pos
+✅ Will update: transformer.blocks.0.attn.W_Q
+✅ Will update: transformer.blocks.0.attn.W_K
+✅ Will update: transformer.blocks.0.attn.W_V
+✅ Will update: transformer.blocks.0.attn.W_O
+✅ Will update: transformer.blocks.0.attn.b_Q
+✅ Will update: transformer.blocks.0.attn.b_K
+✅ Will update: transformer.blocks.0.attn.b_V
+✅ Will update: transformer.blocks.0.attn.b_O
+✅ Will update: transformer.blocks.0.mlp.W_in
+✅ Will update: transformer.blocks.0.mlp.b_in
+✅ Will update: transformer.blocks.0.mlp.W_out
+✅ Will update: transformer.blocks.0.mlp.b_out
+✅ Will update: transformer.blocks.1.attn.W_Q
+✅ Will update: transformer.blocks.1.attn.W_K
+✅ Will update: transformer.blocks.1.attn.W_V
+✅ Will update: transformer.blocks.1.attn.W_O
+✅ Will update: transformer.blocks.1.attn.b_Q
+✅ Will update: transformer.blocks.1.attn.b_K
+✅ Will update: transformer.blocks.1.attn.b_V
+✅ Will update: transformer.blocks.1.attn.b_O
+✅ Will update: transformer.blocks.1.mlp.W_in
+✅ Will update: transformer.blocks.1.mlp.b_in
+✅ Will update: transformer.blocks.1.mlp.W_out
+✅ Will update: transformer.blocks.1.mlp.b_out
+✅ Will update: action_predictor.weight
+✅ Will update: action_predictor.bias
+✅ Will update: state_predictor.weight
+✅ Will update: state_predictor.bias
+✅ Will update: reward_embedding.0.weight
+✅ Will update: reward_predictor.weight
+✅ Will update: reward_predictor.bias
+✅ Will update: penultimate_layer.0.weight
+✅ Will update: penultimate_layer.0.bias
+✅ Will update: output_layer.0.weight
+✅ Will update: output_layer.0.bias
+===== 태스크별 데이터셋 크기 =====
+Task task_0: 133 샘플
+Task task_1: 165 샘플
+Task task_2: 131 샘플
+===== 원본 데이터셋 태스크별 분포 =====
+전체 데이터 수: 429
+Task 0: 133 샘플 (31.00%)
+Task 1: 165 샘플 (38.46%)
+Task 2: 131 샘플 (30.54%)
+===== 학습/테스트 데이터 분할 (태스크 균형 유지) =====
+학습 데이터: 299 샘플
+테스트 데이터: 130 샘플
+===== 첫 배치에서의 태스크 분포 확인 =====
+Task 0: 42 샘플 (32.81%)
+Task 1: 44 샘플 (34.38%)
+Task 2: 42 샘플 (32.81%)
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+Training DT: 0.0001:   0%|          | 0/100 [00:01<?, ?it/s]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+Training DT: 0.0001:   0%|          | 0/100 [00:02<?, ?it/s]/home/hail/anaconda3/envs/dt/lib/python3.9/site-packages/gymnasium/wrappers/rendering.py:283: UserWarning:
+[33mWARN: Overwriting existing videos at /home/hail/DT/src/videos/dt_eval_videos_0 folder (try specifying a different `video_folder` for the `RecordVideo` wrapper if this is not desired)
+Evaluating DT:   0%|          | 0/10 [00:00<?, ?it/s]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+
+Evaluating DT: Finished running 0 episodes.Current episodes are at timestep [41, 41, 41, 41, 41, 41, 41, 41] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:   0%|          | 0/10 [00:02<?, ?it/s]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+
+Evaluating DT: Finished running 0 episodes.Current episodes are at timestep [87, 87, 87, 87, 87, 87, 87, 87] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:   0%|          | 0/10 [00:05<?, ?it/s]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+
+Evaluating DT: Finished running 0 episodes.Current episodes are at timestep [133, 133, 133, 133, 133, 133, 133, 133] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:   0%|          | 0/10 [00:07<?, ?it/s]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+
+Evaluating DT: Finished running 0 episodes.Current episodes are at timestep [179, 179, 179, 179, 179, 179, 179, 179] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:   0%|          | 0/10 [00:09<?, ?it/s]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+Evaluating DT: Finished running 8 episodes.Current episodes are at timestep [200, 200, 200, 200, 200, 200, 200, 200] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:   0%|          | 0/10 [00:10<?, ?it/s]
+Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:230.)
+Evaluating DT: Finished running 8 episodes.Current episodes are at timestep [8, 8, 8, 8, 8, 8, 8, 8] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  10%|█         | 1/10 [00:11<01:32, 10.33s/it]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+
+Evaluating DT: Finished running 8 episodes.Current episodes are at timestep [59, 59, 59, 59, 59, 59, 59, 59] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  10%|█         | 1/10 [00:13<01:32, 10.33s/it]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+
+Evaluating DT: Finished running 8 episodes.Current episodes are at timestep [124, 124, 124, 124, 124, 124, 124, 124] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  10%|█         | 1/10 [00:15<01:32, 10.33s/it]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+
+Evaluating DT: Finished running 8 episodes.Current episodes are at timestep [191, 191, 191, 191, 191, 191, 191, 191] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  10%|█         | 1/10 [00:17<01:32, 10.33s/it]
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:   1%|          | 1/100 [00:21<33:36, 20.37s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:   2%|▏         | 2/100 [00:22<15:56,  9.76s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:   3%|▎         | 3/100 [00:25<10:17,  6.37s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:   5%|▌         | 5/100 [00:29<06:08,  3.88s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:   6%|▌         | 6/100 [00:31<05:14,  3.35s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:   6%|▌         | 6/100 [00:33<05:14,  3.35s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:   7%|▋         | 7/100 [00:35<04:39,  3.01s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+
+Training DT: 0.0001:   8%|▊         | 8/100 [00:37<04:16,  2.79s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:   9%|▉         | 9/100 [00:40<04:01,  2.65s/it]timestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  10%|█         | 10/100 [00:41<03:51,  2.57s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  11%|█         | 11/100 [00:43<03:41,  2.49s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  12%|█▏        | 12/100 [00:45<03:34,  2.44s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  12%|█▏        | 12/100 [00:47<03:34,  2.44s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  13%|█▎        | 13/100 [00:49<03:28,  2.40s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  14%|█▍        | 14/100 [00:51<03:24,  2.38s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  15%|█▌        | 15/100 [00:54<03:20,  2.36s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  16%|█▌        | 16/100 [00:55<03:17,  2.35s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  17%|█▋        | 17/100 [00:57<03:14,  2.34s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  18%|█▊        | 18/100 [00:59<03:10,  2.33s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  19%|█▉        | 19/100 [01:02<03:08,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:  20%|██        | 20/100 [01:05<03:05,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  21%|██        | 21/100 [01:07<03:03,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  22%|██▏       | 22/100 [01:10<03:00,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:  24%|██▍       | 24/100 [01:13<02:56,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  25%|██▌       | 25/100 [01:16<02:53,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:  26%|██▌       | 26/100 [01:19<02:51,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  28%|██▊       | 28/100 [01:24<02:47,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:  30%|███       | 30/100 [01:27<02:42,  2.31s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  31%|███       | 31/100 [01:30<02:40,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  32%|███▏      | 32/100 [01:32<02:37,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:  33%|███▎      | 33/100 [01:35<02:35,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  34%|███▍      | 34/100 [01:38<02:35,  2.36s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  35%|███▌      | 35/100 [01:39<02:35,  2.40s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  36%|███▌      | 36/100 [01:42<02:35,  2.44s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  36%|███▌      | 36/100 [01:43<02:35,  2.44s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  37%|███▋      | 37/100 [01:45<02:31,  2.40s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  38%|███▊      | 38/100 [01:47<02:27,  2.38s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  39%|███▉      | 39/100 [01:50<02:23,  2.36s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  40%|████      | 40/100 [01:51<02:20,  2.35s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  41%|████      | 41/100 [01:53<02:21,  2.40s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:  42%|████▏     | 42/100 [01:57<02:18,  2.39s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  43%|████▎     | 43/100 [01:59<02:15,  2.37s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  44%|████▍     | 44/100 [02:02<02:11,  2.35s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  45%|████▌     | 45/100 [02:04<02:09,  2.35s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  46%|████▌     | 46/100 [02:05<02:07,  2.35s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  47%|████▋     | 47/100 [02:08<02:07,  2.40s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  47%|████▋     | 47/100 [02:09<02:07,  2.40s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0001:  49%|████▉     | 49/100 [02:14<02:05,  2.46s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  50%|█████     | 50/100 [02:15<02:00,  2.41s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  51%|█████     | 51/100 [02:17<01:56,  2.38s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  52%|█████▏    | 52/100 [02:20<01:53,  2.36s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  53%|█████▎    | 53/100 [02:22<01:50,  2.34s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0000:  55%|█████▌    | 55/100 [02:26<01:44,  2.33s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0001:  55%|█████▌    | 55/100 [02:28<01:44,  2.33s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  56%|█████▌    | 56/100 [02:30<01:41,  2.32s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  57%|█████▋    | 57/100 [02:32<01:39,  2.31s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  58%|█████▊    | 58/100 [02:33<01:37,  2.31s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0000:  59%|█████▉    | 59/100 [02:37<01:35,  2.34s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  60%|██████    | 60/100 [02:40<01:41,  2.53s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  61%|██████    | 61/100 [02:41<01:39,  2.56s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  62%|██████▏   | 62/100 [02:44<01:39,  2.63s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0000:  63%|██████▎   | 63/100 [02:48<01:41,  2.74s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  64%|██████▍   | 64/100 [02:50<01:34,  2.63s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  65%|██████▌   | 65/100 [02:52<01:29,  2.56s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  65%|██████▌   | 65/100 [02:53<01:29,  2.56s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  66%|██████▌   | 66/100 [02:56<01:30,  2.68s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  67%|██████▋   | 67/100 [02:58<01:28,  2.69s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  68%|██████▊   | 68/100 [03:00<01:26,  2.72s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  68%|██████▊   | 68/100 [03:02<01:26,  2.72s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+
+Training DT: 0.0000:  70%|███████   | 70/100 [03:06<01:19,  2.66s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  71%|███████   | 71/100 [03:08<01:19,  2.73s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  71%|███████   | 71/100 [03:10<01:19,  2.73s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  72%|███████▏  | 72/100 [03:12<01:12,  2.61s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  73%|███████▎  | 73/100 [03:14<01:07,  2.52s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  74%|███████▍  | 74/100 [03:17<01:03,  2.45s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+reward_preds.shape (pred): torch.Size([12800, 1])
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+
+Training DT: 0.0000:  75%|███████▌  | 75/100 [03:18<01:00,  2.41s/it]imestep [201, 201, 201, 201, 201, 201, 201, 201] for reward [0. 0. 0. 0. 0. 0. 0. 0.]:  80%|████████  | 8/10 [00:17<00:03,  1.91s/it]
+[correct] no_actions is False
+r.shape: torch.Size([128, 100, 1])
+reward_preds.shape: torch.Size([12800, 1])
+s[1:].shape (GT): torch.Size([128, 100, 7, 7, 20])
+state_preds.shape (pred): torch.Size([128, 101, 980])
+r[1:].shape (GT): torch.Size([128, 99, 1])
+

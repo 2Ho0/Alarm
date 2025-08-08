@@ -1,0 +1,105 @@
+{
+    "os": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+    "python": "3.9.0",
+    "heartbeatAt": "2025-05-08T04:26:00.297219",
+    "startedAt": "2025-05-08T04:25:59.343591",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/hail/DT/src/run_decision_transformer_local.py",
+    "codePath": "src/run_decision_transformer_local.py",
+    "git": {
+        "remote": "https://github.com/2Ho0/DT.git",
+        "commit": "1baf25fdc97856fe4983f1faff0d31c6937452fc"
+    },
+    "email": "mwilliam55@naver.com",
+    "root": "/home/hail/DT",
+    "host": "hail-4060ti-2",
+    "username": "hail",
+    "executable": "/home/hail/anaconda3/envs/dt/bin/python",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 1337.028,
+        "min": 800.0,
+        "max": 4400.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 800.751,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 1485.448,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 1909.491,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 799.191,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 1374.961,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4400.0
+        }
+    ],
+    "disk": {
+        "total": 250.05871200561523,
+        "used": 20.80084991455078
+    },
+    "gpu": "NVIDIA GeForce RTX 4060 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4060 Ti",
+            "memory_total": 17175674880
+        }
+    ],
+    "memory": {
+        "total": 62.61302947998047
+    }
+}

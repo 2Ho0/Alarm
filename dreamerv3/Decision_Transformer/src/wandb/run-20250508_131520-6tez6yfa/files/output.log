@@ -1,0 +1,66 @@
+Class Weights: [1.08333333 0.86666667 1.08333333]
+✅ Will update: action_embedding.0.weight
+✅ Will update: time_embedding.weight
+✅ Will update: state_embedding.weight
+✅ Will update: transformer.pos_embed.W_pos
+✅ Will update: transformer.blocks.0.attn.W_Q
+✅ Will update: transformer.blocks.0.attn.W_K
+✅ Will update: transformer.blocks.0.attn.W_V
+✅ Will update: transformer.blocks.0.attn.W_O
+✅ Will update: transformer.blocks.0.attn.b_Q
+✅ Will update: transformer.blocks.0.attn.b_K
+✅ Will update: transformer.blocks.0.attn.b_V
+✅ Will update: transformer.blocks.0.attn.b_O
+✅ Will update: transformer.blocks.0.mlp.W_in
+✅ Will update: transformer.blocks.0.mlp.b_in
+✅ Will update: transformer.blocks.0.mlp.W_out
+✅ Will update: transformer.blocks.0.mlp.b_out
+✅ Will update: transformer.blocks.1.attn.W_Q
+✅ Will update: transformer.blocks.1.attn.W_K
+✅ Will update: transformer.blocks.1.attn.W_V
+✅ Will update: transformer.blocks.1.attn.W_O
+✅ Will update: transformer.blocks.1.attn.b_Q
+✅ Will update: transformer.blocks.1.attn.b_K
+✅ Will update: transformer.blocks.1.attn.b_V
+✅ Will update: transformer.blocks.1.attn.b_O
+✅ Will update: transformer.blocks.1.mlp.W_in
+✅ Will update: transformer.blocks.1.mlp.b_in
+✅ Will update: transformer.blocks.1.mlp.W_out
+✅ Will update: transformer.blocks.1.mlp.b_out
+✅ Will update: action_predictor.weight
+✅ Will update: action_predictor.bias
+✅ Will update: state_predictor.weight
+✅ Will update: state_predictor.bias
+✅ Will update: reward_embedding.0.weight
+✅ Will update: reward_predictor.weight
+✅ Will update: reward_predictor.bias
+✅ Will update: penultimate_layer.0.weight
+✅ Will update: penultimate_layer.0.bias
+✅ Will update: penultimate_layer.1.weight
+✅ Will update: penultimate_layer.1.bias
+✅ Will update: penultimate_layer.3.weight
+✅ Will update: penultimate_layer.3.bias
+✅ Will update: penultimate_layer.5.weight
+✅ Will update: penultimate_layer.5.bias
+✅ Will update: penultimate_layer.6.weight
+✅ Will update: penultimate_layer.6.bias
+✅ Will update: penultimate_layer.8.weight
+✅ Will update: penultimate_layer.8.bias
+✅ Will update: output_layer.0.weight
+✅ Will update: output_layer.0.bias
+===== 태스크별 데이터셋 크기 =====
+Task task_0: 133 샘플
+Task task_1: 165 샘플
+Task task_2: 131 샘플
+===== 원본 데이터셋 태스크별 분포 =====
+전체 데이터 수: 429
+Task 0: 133 샘플 (31.00%)
+Task 1: 165 샘플 (38.46%)
+Task 2: 131 샘플 (30.54%)
+===== 학습/테스트 데이터 분할 (태스크 균형 유지) =====
+학습 데이터: 299 샘플
+테스트 데이터: 130 샘플
+===== 첫 배치에서의 태스크 분포 확인 =====
+Task 0: 35 샘플 (27.34%)
+Task 1: 48 샘플 (37.50%)
+Task 2: 45 샘플 (35.16%)

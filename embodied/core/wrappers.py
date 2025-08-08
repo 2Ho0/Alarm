@@ -57,12 +57,15 @@ class TimeLimit(Wrapper):
 class ActionRepeat(Wrapper):
 
   def __init__(self, env, repeat):
-    super().__init__(env)
+    super().__init__(env) # self.env = env
     self._repeat = repeat
 
   def step(self, action):
+  # action['reset'] 값이 True일 때, env.step(action) 반환하며 함수 종료
     if action['reset']:
       return self.env.step(action)
+    
+  # action['reset'] 값이 False일 때, repeat 만큼 행동 반복 실행 하여 최종 obs 반환 code
     reward = 0.0
     for _ in range(self._repeat):
       obs = self.env.step(action)

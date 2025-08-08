@@ -1,0 +1,956 @@
+Did not find any checkpoint.
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T123249F286533
+Saved checkpoint.
+Start training loop
+[36m--------------------[Agent Step 3_984]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.25[39m [32m/[39m train/loss/dyn [34m9.75[39m [32m/[39m train/loss/image [34m559.03[39m [32m/[39m train/loss/policy [34m1.1e-3[39m [32m/[39m train/loss/rep [34m9.75[39m [32m/[39m train/loss/repval [34m11.01[39m [32m/[39m train/loss/rew [34m5.5[39m [32m/[39m train/loss/value [34m4.52[39m [32m/[39m replay/replay_ratio [34m21.78[39m [32m/[39m fps/policy [34m31.47[39m [32m/[39m fps/train [34m493.39
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[33mStart JAX profiler: /home/hail/logdir/dreamer/20250806T123208
+/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/wandb/sdk/lib/import_hooks.py:246: DeprecationWarning: Deprecated since Python 3.4 and slated for removal in Python 3.12; use importlib.util.find_spec() instead
+  loader = importlib.find_loader(fullname, path)
+[33mStop JAX profiler
+/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/wandb/sdk/lib/import_hooks.py:246: DeprecationWarning: Deprecated since Python 3.4 and slated for removal in Python 3.12; use importlib.util.find_spec() instead
+  loader = importlib.find_loader(fullname, path)
+[36m--------------------[Agent Step 6_736]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.34[39m [32m/[39m train/loss/image [34m171.42[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m11.34[39m [32m/[39m train/loss/repval [34m9.91[39m [32m/[39m train/loss/rew [34m4.89[39m [32m/[39m train/loss/value [34m9.4[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.8[39m [32m/[39m fps/train [34m729.65
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 9_536]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m5.96[39m [32m/[39m train/loss/image [34m136.54[39m [32m/[39m train/loss/policy [34m0.36[39m [32m/[39m train/loss/rep [34m5.96[39m [32m/[39m train/loss/repval [34m7.26[39m [32m/[39m train/loss/rew [34m3.42[39m [32m/[39m train/loss/value [34m6.57[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.25[39m [32m/[39m fps/train [34m748.26
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+WARNING:py.warnings:/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/moviepy/video/fx/painting.py:7: DeprecationWarning: Please use `sobel` from the `scipy.ndimage` namespace, the `scipy.ndimage.filters` namespace is deprecated.
+  from scipy.ndimage.filters import sobel
+[36m--------------------[Agent Step 12_320]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m6.87[39m [32m/[39m train/loss/image [34m114.55[39m [32m/[39m train/loss/policy [34m1.4[39m [32m/[39m train/loss/rep [34m6.87[39m [32m/[39m train/loss/repval [34m5.11[39m [32m/[39m train/loss/rew [34m1.64[39m [32m/[39m train/loss/value [34m3.59[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.18[39m [32m/[39m fps/train [34m741.67
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 15_072]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m5.9[39m [32m/[39m train/loss/image [34m94.44[39m [32m/[39m train/loss/policy [34m1.66[39m [32m/[39m train/loss/rep [34m5.9[39m [32m/[39m train/loss/repval [34m4.56[39m [32m/[39m train/loss/rew [34m0.67[39m [32m/[39m train/loss/value [34m2.82[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.89[39m [32m/[39m fps/train [34m732.45
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 17_856]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m54.17[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m5.69[39m [32m/[39m train/loss/image [34m81.23[39m [32m/[39m train/loss/policy [34m1.57[39m [32m/[39m train/loss/rep [34m5.69[39m [32m/[39m train/loss/repval [34m4.13[39m [32m/[39m train/loss/rew [34m0.52[39m [32m/[39m train/loss/value [34m2.45[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.15[39m [32m/[39m fps/train [34m740.79
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 20_544]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m6.17[39m [32m/[39m train/loss/image [34m73.2[39m [32m/[39m train/loss/policy [34m1.62[39m [32m/[39m train/loss/rep [34m6.17[39m [32m/[39m train/loss/repval [34m3.65[39m [32m/[39m train/loss/rew [34m0.51[39m [32m/[39m train/loss/value [34m2.21[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.38[39m [32m/[39m fps/train [34m716.15
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T124754F926426
+Saved checkpoint.
+[36m--------------------[Agent Step 23_200]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m6.89[39m [32m/[39m train/loss/image [34m65.39[39m [32m/[39m train/loss/policy [34m1.61[39m [32m/[39m train/loss/rep [34m6.89[39m [32m/[39m train/loss/repval [34m3.36[39m [32m/[39m train/loss/rew [34m0.5[39m [32m/[39m train/loss/value [34m2.09[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.09[39m [32m/[39m fps/train [34m706.86
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 26_000]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m7.68[39m [32m/[39m train/loss/image [34m61.47[39m [32m/[39m train/loss/policy [34m1.76[39m [32m/[39m train/loss/rep [34m7.68[39m [32m/[39m train/loss/repval [34m3.15[39m [32m/[39m train/loss/rew [34m0.51[39m [32m/[39m train/loss/value [34m2.05[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.18[39m [32m/[39m fps/train [34m737.67
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 28_784]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.38[39m [32m/[39m train/loss/image [34m56.51[39m [32m/[39m train/loss/policy [34m2.11[39m [32m/[39m train/loss/rep [34m8.38[39m [32m/[39m train/loss/repval [34m3.05[39m [32m/[39m train/loss/rew [34m0.53[39m [32m/[39m train/loss/value [34m2.07[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.13[39m [32m/[39m fps/train [34m740.22
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[34m[1mwandb[39m[22m: 429 encountered (Filestream rate limit exceeded, retrying in 2.1529834194794635 seconds), retrying request
+[36m--------------------[Agent Step 31_584]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.06[39m [32m/[39m train/loss/image [34m53.08[39m [32m/[39m train/loss/policy [34m2.03[39m [32m/[39m train/loss/rep [34m9.06[39m [32m/[39m train/loss/repval [34m2.97[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m2.11[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.29[39m [32m/[39m fps/train [34m749.4
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 34_352]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m69.05[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.57[39m [32m/[39m train/loss/image [34m49.89[39m [32m/[39m train/loss/policy [34m1.48[39m [32m/[39m train/loss/rep [34m9.57[39m [32m/[39m train/loss/repval [34m2.84[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m2.01[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.88[39m [32m/[39m fps/train [34m728.02
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 37_008]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.01[39m [32m/[39m train/loss/image [34m47.56[39m [32m/[39m train/loss/policy [34m1.14[39m [32m/[39m train/loss/rep [34m10.01[39m [32m/[39m train/loss/repval [34m2.79[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m2.03[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22[39m [32m/[39m fps/train [34m704
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 39_792]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.37[39m [32m/[39m train/loss/image [34m43.96[39m [32m/[39m train/loss/policy [34m1.15[39m [32m/[39m train/loss/rep [34m10.37[39m [32m/[39m train/loss/repval [34m2.7[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.97[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.04[39m [32m/[39m fps/train [34m737.34
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T130255F085216
+Saved checkpoint.
+[36m--------------------[Agent Step 42_496]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.7[39m [32m/[39m train/loss/image [34m41.85[39m [32m/[39m train/loss/policy [34m0.43[39m [32m/[39m train/loss/rep [34m10.7[39m [32m/[39m train/loss/repval [34m2.55[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.91[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m22.49[39m [32m/[39m fps/train [34m723.78
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 45_248]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.9[39m [32m/[39m train/loss/image [34m39.51[39m [32m/[39m train/loss/policy [34m0.17[39m [32m/[39m train/loss/rep [34m10.9[39m [32m/[39m train/loss/repval [34m2.43[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.78[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.91[39m [32m/[39m fps/train [34m733
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 48_048]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m138.72[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.05[39m [32m/[39m train/loss/image [34m37.53[39m [32m/[39m train/loss/policy [34m-0.17[39m [32m/[39m train/loss/rep [34m11.05[39m [32m/[39m train/loss/repval [34m2.4[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.75[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.33[39m [32m/[39m fps/train [34m742.22
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 50_800]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.27[39m [32m/[39m train/loss/image [34m37.05[39m [32m/[39m train/loss/policy [34m-0.17[39m [32m/[39m train/loss/rep [34m11.27[39m [32m/[39m train/loss/repval [34m2.18[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.59[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.81[39m [32m/[39m fps/train [34m730.07
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 53_584]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.39[39m [32m/[39m train/loss/image [34m35.36[39m [32m/[39m train/loss/policy [34m-0.03[39m [32m/[39m train/loss/rep [34m11.39[39m [32m/[39m train/loss/repval [34m2.19[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.6[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.03[39m [32m/[39m fps/train [34m736.85
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 56_368]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.48[39m [32m/[39m train/loss/image [34m33.42[39m [32m/[39m train/loss/policy [34m0.13[39m [32m/[39m train/loss/rep [34m11.48[39m [32m/[39m train/loss/repval [34m2.02[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.46[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.04[39m [32m/[39m fps/train [34m737.13
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 59_120]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.48[39m [32m/[39m train/loss/image [34m32.24[39m [32m/[39m train/loss/policy [34m0.16[39m [32m/[39m train/loss/rep [34m11.48[39m [32m/[39m train/loss/repval [34m1.97[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.46[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.87[39m [32m/[39m fps/train [34m731.73
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 61_888]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.5[39m [32m/[39m train/loss/image [34m31.14[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.5[39m [32m/[39m train/loss/repval [34m1.98[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.5[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.02[39m [32m/[39m fps/train [34m740.89
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T131755F240797
+Saved checkpoint.
+[36m--------------------[Agent Step 64_592]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m293.87[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.54[39m [32m/[39m train/loss/image [34m30.21[39m [32m/[39m train/loss/policy [34m-0.05[39m [32m/[39m train/loss/rep [34m11.54[39m [32m/[39m train/loss/repval [34m1.91[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.43[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.44[39m [32m/[39m fps/train [34m713.89
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 67_280]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.66[39m [32m/[39m train/loss/image [34m30.29[39m [32m/[39m train/loss/policy [34m-0.02[39m [32m/[39m train/loss/rep [34m11.66[39m [32m/[39m train/loss/repval [34m1.79[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.42[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.23[39m [32m/[39m fps/train [34m711.49
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 70_096]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.61[39m [32m/[39m train/loss/image [34m29.1[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m11.61[39m [32m/[39m train/loss/repval [34m1.86[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.36[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.31[39m [32m/[39m fps/train [34m746.06
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 72_912]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.71[39m [32m/[39m train/loss/image [34m28.25[39m [32m/[39m train/loss/policy [34m-5e-3[39m [32m/[39m train/loss/rep [34m11.71[39m [32m/[39m train/loss/repval [34m1.67[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.33[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.43[39m [32m/[39m fps/train [34m749.84
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 75_696]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.62[39m [32m/[39m train/loss/image [34m27.43[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m11.62[39m [32m/[39m train/loss/repval [34m1.7[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.37[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.01[39m [32m/[39m fps/train [34m736.39
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 78_480]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.62[39m [32m/[39m train/loss/image [34m26.58[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m11.62[39m [32m/[39m train/loss/repval [34m1.71[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.28[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.05[39m [32m/[39m fps/train [34m737.68
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 81_232]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m178.23[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.72[39m [32m/[39m train/loss/image [34m26.23[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m11.72[39m [32m/[39m train/loss/repval [34m1.61[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.27[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.82[39m [32m/[39m fps/train [34m730.25
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T133255F744032
+Saved checkpoint.
+[36m--------------------[Agent Step 83_808]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.64[39m [32m/[39m train/loss/image [34m25.39[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m11.64[39m [32m/[39m train/loss/repval [34m1.56[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.32[39m [32m/[39m replay/replay_ratio [34m32.7[39m [32m/[39m fps/policy [34m21.45[39m [32m/[39m fps/train [34m690.82
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 86_608]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.6[39m [32m/[39m train/loss/image [34m24.76[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m11.6[39m [32m/[39m train/loss/repval [34m1.53[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.19[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.24[39m [32m/[39m fps/train [34m739.27
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 89_392]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.59[39m [32m/[39m train/loss/image [34m24[39m [32m/[39m train/loss/policy [34m0.08[39m [32m/[39m train/loss/rep [34m11.59[39m [32m/[39m train/loss/repval [34m1.47[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.17[39m [32m/[39m fps/train [34m741.34
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 92_176]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.51[39m [32m/[39m train/loss/image [34m23.85[39m [32m/[39m train/loss/policy [34m0.09[39m [32m/[39m train/loss/rep [34m11.51[39m [32m/[39m train/loss/repval [34m1.49[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.21[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.05[39m [32m/[39m fps/train [34m737.46
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 94_960]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.52[39m [32m/[39m train/loss/image [34m23.05[39m [32m/[39m train/loss/policy [34m0.08[39m [32m/[39m train/loss/rep [34m11.52[39m [32m/[39m train/loss/repval [34m1.42[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.25[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.18[39m [32m/[39m fps/train [34m741.75
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 97_744]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m178.99[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.48[39m [32m/[39m train/loss/image [34m22.4[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m11.48[39m [32m/[39m train/loss/repval [34m1.38[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.24[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.1[39m [32m/[39m fps/train [34m739.05
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 100_416]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.49[39m [32m/[39m train/loss/image [34m22.23[39m [32m/[39m train/loss/policy [34m0.08[39m [32m/[39m train/loss/rep [34m11.49[39m [32m/[39m train/loss/repval [34m1.33[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.09[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m22.22[39m [32m/[39m fps/train [34m715.15
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 103_200]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.56[39m [32m/[39m train/loss/image [34m22.19[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m11.56[39m [32m/[39m train/loss/repval [34m1.23[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m0.95[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.15[39m [32m/[39m fps/train [34m740.77
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T134755F830064
+Saved checkpoint.
+[36m--------------------[Agent Step 105_872]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.55[39m [32m/[39m train/loss/image [34m21.37[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m11.55[39m [32m/[39m train/loss/repval [34m1.26[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m0.99[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.09[39m [32m/[39m fps/train [34m702.79
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 108_640]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.41[39m [32m/[39m train/loss/image [34m21.1[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.41[39m [32m/[39m train/loss/repval [34m1.33[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.05[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.01[39m [32m/[39m fps/train [34m740.63
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 111_424]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.42[39m [32m/[39m train/loss/image [34m20.6[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.42[39m [32m/[39m train/loss/repval [34m1.34[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.14[39m [32m/[39m fps/train [34m740.55
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 114_208]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m179.39[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.38[39m [32m/[39m train/loss/image [34m20.72[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.38[39m [32m/[39m train/loss/repval [34m1.3[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.19[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.2[39m [32m/[39m fps/train [34m742.28
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 116_896]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.32[39m [32m/[39m train/loss/image [34m20.37[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.32[39m [32m/[39m train/loss/repval [34m1.32[39m [32m/[39m train/loss/rew [34m0.61[39m [32m/[39m train/loss/value [34m1.23[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.36[39m [32m/[39m fps/train [34m715.63
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 119_664]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.42[39m [32m/[39m train/loss/image [34m20.49[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.42[39m [32m/[39m train/loss/repval [34m1.33[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.2[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.88[39m [32m/[39m fps/train [34m727.87
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 122_432]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.43[39m [32m/[39m train/loss/image [34m20[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.43[39m [32m/[39m train/loss/repval [34m1.29[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.14[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.06[39m [32m/[39m fps/train [34m742.1
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T140256F685824
+Saved checkpoint.
+[36m--------------------[Agent Step 125_072]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.3[39m [32m/[39m train/loss/image [34m19.77[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.3[39m [32m/[39m train/loss/repval [34m1.25[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.14[39m [32m/[39m replay/replay_ratio [34m32.3[39m [32m/[39m fps/policy [34m21.97[39m [32m/[39m fps/train [34m698.76
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 127_808]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.29[39m [32m/[39m train/loss/image [34m19.25[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.29[39m [32m/[39m train/loss/repval [34m1.16[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.14[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m22.79[39m [32m/[39m fps/train [34m733.71
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 130_576]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m235.06[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.31[39m [32m/[39m train/loss/image [34m19.37[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.31[39m [32m/[39m train/loss/repval [34m1.11[39m [32m/[39m train/loss/rew [34m0.6[39m [32m/[39m train/loss/value [34m1.08[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23[39m [32m/[39m fps/train [34m731.9
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 133_264]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.22[39m [32m/[39m train/loss/image [34m19[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.22[39m [32m/[39m train/loss/repval [34m1.1[39m [32m/[39m train/loss/rew [34m0.59[39m [32m/[39m train/loss/value [34m0.97[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.22[39m [32m/[39m fps/train [34m711.19
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 136_016]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.23[39m [32m/[39m train/loss/image [34m18.81[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m11.23[39m [32m/[39m train/loss/repval [34m1.08[39m [32m/[39m train/loss/rew [34m0.59[39m [32m/[39m train/loss/value [34m0.83[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.9[39m [32m/[39m fps/train [34m732.66
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 138_784]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.13[39m [32m/[39m train/loss/image [34m18.09[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m11.13[39m [32m/[39m train/loss/repval [34m0.99[39m [32m/[39m train/loss/rew [34m0.59[39m [32m/[39m train/loss/value [34m0.69[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.01[39m [32m/[39m fps/train [34m740.47
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 141_552]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.06[39m [32m/[39m train/loss/image [34m18.03[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m11.06[39m [32m/[39m train/loss/repval [34m0.99[39m [32m/[39m train/loss/rew [34m0.59[39m [32m/[39m train/loss/value [34m0.69[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.91[39m [32m/[39m fps/train [34m728.81
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 144_336]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m457.42[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.14[39m [32m/[39m train/loss/image [34m17.92[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m11.14[39m [32m/[39m train/loss/repval [34m1.02[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m0.76[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.14[39m [32m/[39m fps/train [34m740.5
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T141757F644539
+Saved checkpoint.
+[36m--------------------[Agent Step 146_912]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.2[39m [32m/[39m train/loss/image [34m18.57[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m11.2[39m [32m/[39m train/loss/repval [34m1.09[39m [32m/[39m train/loss/rew [34m0.59[39m [32m/[39m train/loss/value [34m0.89[39m [32m/[39m replay/replay_ratio [34m32.7[39m [32m/[39m fps/policy [34m21.46[39m [32m/[39m fps/train [34m690.96
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 149_680]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m11.01[39m [32m/[39m train/loss/image [34m17.42[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m11.01[39m [32m/[39m train/loss/repval [34m1.09[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m0.97[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.91[39m [32m/[39m fps/train [34m729.02
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 152_464]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.95[39m [32m/[39m train/loss/image [34m17.19[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.95[39m [32m/[39m train/loss/repval [34m1.14[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.04[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.01[39m [32m/[39m fps/train [34m736.22
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 155_216]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.94[39m [32m/[39m train/loss/image [34m17.35[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.94[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.06[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.92[39m [32m/[39m fps/train [34m733.38
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 157_984]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.99[39m [32m/[39m train/loss/image [34m17.17[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.99[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.04[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.02[39m [32m/[39m fps/train [34m740.75
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 160_720]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m447.14[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.86[39m [32m/[39m train/loss/image [34m16.49[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.86[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.01[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.79[39m [32m/[39m fps/train [34m725.03
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 163_376]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.91[39m [32m/[39m train/loss/image [34m17.14[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.91[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m21.99[39m [32m/[39m fps/train [34m703.55
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T143258F298528
+Saved checkpoint.
+[36m--------------------[Agent Step 166_032]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.7[39m [32m/[39m train/loss/image [34m16.31[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.7[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.04[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m21.99[39m [32m/[39m fps/train [34m703.56
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 168_784]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.69[39m [32m/[39m train/loss/image [34m16.12[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.69[39m [32m/[39m train/loss/repval [34m1.23[39m [32m/[39m train/loss/rew [34m0.58[39m [32m/[39m train/loss/value [34m1.1[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.84[39m [32m/[39m fps/train [34m730.99
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 171_568]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.71[39m [32m/[39m train/loss/image [34m16.41[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.71[39m [32m/[39m train/loss/repval [34m1.26[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.19[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.16[39m [32m/[39m fps/train [34m741.22
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 174_352]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.69[39m [32m/[39m train/loss/image [34m15.79[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m10.69[39m [32m/[39m train/loss/repval [34m1.27[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.23[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.16[39m [32m/[39m fps/train [34m741.21
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 177_136]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m451.43[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.67[39m [32m/[39m train/loss/image [34m15.9[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.67[39m [32m/[39m train/loss/repval [34m1.28[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.27[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.01[39m [32m/[39m fps/train [34m736.2
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 179_792]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.55[39m [32m/[39m train/loss/image [34m15.62[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.55[39m [32m/[39m train/loss/repval [34m1.26[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.28[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.11[39m [32m/[39m fps/train [34m707.56
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 182_544]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.56[39m [32m/[39m train/loss/image [34m15.49[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.56[39m [32m/[39m train/loss/repval [34m1.25[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.26[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.77[39m [32m/[39m fps/train [34m728.57
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 185_328]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.57[39m [32m/[39m train/loss/image [34m15.44[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.57[39m [32m/[39m train/loss/repval [34m1.24[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.23[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.19[39m [32m/[39m fps/train [34m741.98
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T144759F140596
+Saved checkpoint.
+[36m--------------------[Agent Step 187_984]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.49[39m [32m/[39m train/loss/image [34m15.33[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.49[39m [32m/[39m train/loss/repval [34m1.22[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.18[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.09[39m [32m/[39m fps/train [34m706.91
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 190_736]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.45[39m [32m/[39m train/loss/image [34m15.17[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.45[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.12[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.89[39m [32m/[39m fps/train [34m732.38
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 193_520]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m173.93[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.48[39m [32m/[39m train/loss/image [34m14.96[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.48[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.09[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.14[39m [32m/[39m fps/train [34m740.37
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 196_176]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.44[39m [32m/[39m train/loss/image [34m15.07[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.44[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.04[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.02[39m [32m/[39m fps/train [34m704.61
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 198_944]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.35[39m [32m/[39m train/loss/image [34m14.87[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.35[39m [32m/[39m train/loss/repval [34m1.16[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.03[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.05[39m [32m/[39m fps/train [34m741.77
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 201_712]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.43[39m [32m/[39m train/loss/image [34m14.97[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.43[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.05[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.99[39m [32m/[39m fps/train [34m731.44
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 204_464]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.27[39m [32m/[39m train/loss/image [34m14.32[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.27[39m [32m/[39m train/loss/repval [34m1.17[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.07[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.8[39m [32m/[39m fps/train [34m729.47
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T150259F146880
+Saved checkpoint.
+[36m--------------------[Agent Step 207_120]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.18[39m [32m/[39m train/loss/image [34m14.37[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.18[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.11[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.04[39m [32m/[39m fps/train [34m705.22
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 209_904]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m166.06[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.3[39m [32m/[39m train/loss/image [34m14.41[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.3[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.12[39m [32m/[39m fps/train [34m739.87
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 212_656]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.24[39m [32m/[39m train/loss/image [34m14.35[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.24[39m [32m/[39m train/loss/repval [34m1.21[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.17[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.76[39m [32m/[39m fps/train [34m728.36
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 215_472]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.29[39m [32m/[39m train/loss/image [34m14.33[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.29[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.18[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.37[39m [32m/[39m fps/train [34m747.7
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 218_224]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.24[39m [32m/[39m train/loss/image [34m14.2[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m10.24[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.19[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.9[39m [32m/[39m fps/train [34m732.69
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 220_992]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.24[39m [32m/[39m train/loss/image [34m14.12[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.24[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.18[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.03[39m [32m/[39m fps/train [34m741.32
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 223_760]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.2[39m [32m/[39m train/loss/image [34m13.97[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.2[39m [32m/[39m train/loss/repval [34m1.16[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.16[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.99[39m [32m/[39m fps/train [34m731.37
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 226_544]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m190.07[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.3[39m [32m/[39m train/loss/image [34m14.38[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.3[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.15[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.07[39m [32m/[39m fps/train [34m738.32
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T151759F772567
+Saved checkpoint.
+[36m--------------------[Agent Step 229_120]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.17[39m [32m/[39m train/loss/image [34m14.16[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.17[39m [32m/[39m train/loss/repval [34m1.15[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.1[39m [32m/[39m replay/replay_ratio [34m32.7[39m [32m/[39m fps/policy [34m21.44[39m [32m/[39m fps/train [34m690.38
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 231_888]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.18[39m [32m/[39m train/loss/image [34m13.78[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.18[39m [32m/[39m train/loss/repval [34m1.12[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.05[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.04[39m [32m/[39m fps/train [34m733.07
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 234_672]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.11[39m [32m/[39m train/loss/image [34m13.9[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.11[39m [32m/[39m train/loss/repval [34m1.1[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.99[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.11[39m [32m/[39m fps/train [34m739.47
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 237_424]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.06[39m [32m/[39m train/loss/image [34m13.69[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.06[39m [32m/[39m train/loss/repval [34m1.01[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.92[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.91[39m [32m/[39m fps/train [34m733.08
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 240_176]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.02[39m [32m/[39m train/loss/image [34m13.58[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.02[39m [32m/[39m train/loss/repval [34m1.02[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.87[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.9[39m [32m/[39m fps/train [34m732.66
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 242_928]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m448.7[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.21[39m [32m/[39m train/loss/image [34m14.1[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.21[39m [32m/[39m train/loss/repval [34m0.99[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.84[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.93[39m [32m/[39m fps/train [34m733.79
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 245_616]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.19[39m [32m/[39m train/loss/image [34m14.25[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.19[39m [32m/[39m train/loss/repval [34m0.96[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.81[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.22[39m [32m/[39m fps/train [34m710.9
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T153300F157885
+Saved checkpoint.
+[36m--------------------[Agent Step 248_304]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.13[39m [32m/[39m train/loss/image [34m14.11[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.13[39m [32m/[39m train/loss/repval [34m0.94[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.76[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.22[39m [32m/[39m fps/train [34m710.95
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 251_088]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.98[39m [32m/[39m train/loss/image [34m13.55[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m9.98[39m [32m/[39m train/loss/repval [34m0.9[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m0.71[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.03[39m [32m/[39m fps/train [34m736.87
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 253_872]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.08[39m [32m/[39m train/loss/image [34m13.66[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.08[39m [32m/[39m train/loss/repval [34m0.87[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.68[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.15[39m [32m/[39m fps/train [34m740.92
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 256_688]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m192.34[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.99[39m [32m/[39m train/loss/image [34m13.44[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m9.99[39m [32m/[39m train/loss/repval [34m0.85[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.66[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.28[39m [32m/[39m fps/train [34m744.92
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 259_376]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.07[39m [32m/[39m train/loss/image [34m13.7[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10.07[39m [32m/[39m train/loss/repval [34m0.87[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.67[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.24[39m [32m/[39m fps/train [34m711.77
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 262_128]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.91[39m [32m/[39m train/loss/image [34m13.55[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.91[39m [32m/[39m train/loss/repval [34m0.86[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.69[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.82[39m [32m/[39m fps/train [34m730.25
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 264_896]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10[39m [32m/[39m train/loss/image [34m13.47[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m10[39m [32m/[39m train/loss/repval [34m0.89[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.71[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.02[39m [32m/[39m fps/train [34m740.96
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 267_664]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.99[39m [32m/[39m train/loss/image [34m13.55[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m9.99[39m [32m/[39m train/loss/repval [34m0.91[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.74[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.97[39m [32m/[39m fps/train [34m730.89
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T154800F511054
+Saved checkpoint.
+[36m--------------------[Agent Step 270_320]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.87[39m [32m/[39m train/loss/image [34m13.14[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.87[39m [32m/[39m train/loss/repval [34m0.91[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.77[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.02[39m [32m/[39m fps/train [34m704.55
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 273_104]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m113.6[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.89[39m [32m/[39m train/loss/image [34m13.36[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m9.89[39m [32m/[39m train/loss/repval [34m0.94[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m0.8[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.08[39m [32m/[39m fps/train [34m738.62
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 275_792]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.99[39m [32m/[39m train/loss/image [34m13.53[39m [32m/[39m train/loss/policy [34m0.14[39m [32m/[39m train/loss/rep [34m9.99[39m [32m/[39m train/loss/repval [34m1.83[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.72[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.22[39m [32m/[39m fps/train [34m711.14
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 278_544]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.94[39m [32m/[39m train/loss/image [34m13.42[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9.94[39m [32m/[39m train/loss/repval [34m1.47[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.3[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.91[39m [32m/[39m fps/train [34m733.23
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 281_328]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m10.05[39m [32m/[39m train/loss/image [34m13.69[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m10.05[39m [32m/[39m train/loss/repval [34m1.38[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.22[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.07[39m [32m/[39m fps/train [34m738.1
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 284_144]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.83[39m [32m/[39m train/loss/image [34m13.39[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9.83[39m [32m/[39m train/loss/repval [34m1.36[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.19[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.27[39m [32m/[39m fps/train [34m744.58
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 286_928]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.85[39m [32m/[39m train/loss/image [34m13.28[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.85[39m [32m/[39m train/loss/repval [34m1.29[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.18[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.1[39m [32m/[39m fps/train [34m739.31
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T160300F578651
+Saved checkpoint.
+[36m--------------------[Agent Step 289_584]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m40.98[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.65[39m [32m/[39m train/loss/image [34m12.97[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.65[39m [32m/[39m train/loss/repval [34m1.25[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.06[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.07[39m [32m/[39m fps/train [34m706.37
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 292_240]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.6[39m [32m/[39m train/loss/image [34m12.95[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9.6[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.05[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.09[39m [32m/[39m fps/train [34m706.87
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 295_024]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.6[39m [32m/[39m train/loss/image [34m12.87[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.6[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.15[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.04[39m [32m/[39m fps/train [34m737.14
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 297_792]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.31[39m [32m/[39m train/loss/image [34m12.38[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.31[39m [32m/[39m train/loss/repval [34m1.28[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.32[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.06[39m [32m/[39m fps/train [34m742.33
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 300_624]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.6[39m [32m/[39m train/loss/image [34m12.74[39m [32m/[39m train/loss/policy [34m0.08[39m [32m/[39m train/loss/rep [34m9.6[39m [32m/[39m train/loss/repval [34m1.4[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.41[39m [32m/[39m replay/replay_ratio [34m32.32[39m [32m/[39m fps/policy [34m23.41[39m [32m/[39m fps/train [34m744.73
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 303_440]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.45[39m [32m/[39m train/loss/image [34m12.77[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.45[39m [32m/[39m train/loss/repval [34m1.34[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.25[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.35[39m [32m/[39m fps/train [34m747.23
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 306_208]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m529.75[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.59[39m [32m/[39m train/loss/image [34m12.85[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m9.59[39m [32m/[39m train/loss/repval [34m1.36[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.31[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.04[39m [32m/[39m fps/train [34m741.38
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 308_928]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.42[39m [32m/[39m train/loss/image [34m12.66[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.42[39m [32m/[39m train/loss/repval [34m1.35[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.3[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.66[39m [32m/[39m fps/train [34m725.26
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T161800F941261
+Saved checkpoint.
+[36m--------------------[Agent Step 311_632]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.45[39m [32m/[39m train/loss/image [34m12.68[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.45[39m [32m/[39m train/loss/repval [34m1.33[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.25[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.46[39m [32m/[39m fps/train [34m714.38
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 314_432]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.6[39m [32m/[39m train/loss/image [34m12.66[39m [32m/[39m train/loss/policy [34m0.09[39m [32m/[39m train/loss/rep [34m9.6[39m [32m/[39m train/loss/repval [34m1.29[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.24[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.31[39m [32m/[39m fps/train [34m750.26
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 317_232]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.39[39m [32m/[39m train/loss/image [34m12.32[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.39[39m [32m/[39m train/loss/repval [34m1.25[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.22[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.19[39m [32m/[39m fps/train [34m737.84
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 320_048]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.5[39m [32m/[39m train/loss/image [34m12.73[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.5[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.12[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.28[39m [32m/[39m fps/train [34m744.86
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 322_832]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m544.04[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.37[39m [32m/[39m train/loss/image [34m12.42[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m9.37[39m [32m/[39m train/loss/repval [34m1.17[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.06[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.12[39m [32m/[39m fps/train [34m739.89
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 325_536]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.32[39m [32m/[39m train/loss/image [34m12.47[39m [32m/[39m train/loss/policy [34m0.08[39m [32m/[39m train/loss/rep [34m9.32[39m [32m/[39m train/loss/repval [34m1.11[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.01[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m22.47[39m [32m/[39m fps/train [34m723.44
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 328_304]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.42[39m [32m/[39m train/loss/image [34m12.61[39m [32m/[39m train/loss/policy [34m0.08[39m [32m/[39m train/loss/rep [34m9.42[39m [32m/[39m train/loss/repval [34m0.95[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.92[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.04[39m [32m/[39m fps/train [34m733.01
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T163301F253018
+Saved checkpoint.
+[36m--------------------[Agent Step 330_992]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.41[39m [32m/[39m train/loss/image [34m12.6[39m [32m/[39m train/loss/policy [34m0.08[39m [32m/[39m train/loss/rep [34m9.41[39m [32m/[39m train/loss/repval [34m1[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.93[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.26[39m [32m/[39m fps/train [34m712.34
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 333_808]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.32[39m [32m/[39m train/loss/image [34m12.35[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m9.32[39m [32m/[39m train/loss/repval [34m1.05[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.89[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.43[39m [32m/[39m fps/train [34m749.61
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 336_608]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m521.83[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.28[39m [32m/[39m train/loss/image [34m12.16[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9.28[39m [32m/[39m train/loss/repval [34m1.02[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.87[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.28[39m [32m/[39m fps/train [34m749.1
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 339_328]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.36[39m [32m/[39m train/loss/image [34m12.52[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.36[39m [32m/[39m train/loss/repval [34m1.03[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.83[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.61[39m [32m/[39m fps/train [34m723.52
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 342_144]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.36[39m [32m/[39m train/loss/image [34m12.45[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9.36[39m [32m/[39m train/loss/repval [34m1.06[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.8[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.46[39m [32m/[39m fps/train [34m750.73
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 344_976]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.31[39m [32m/[39m train/loss/image [34m12.26[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.31[39m [32m/[39m train/loss/repval [34m1.07[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.88[39m [32m/[39m replay/replay_ratio [34m32.32[39m [32m/[39m fps/policy [34m23.48[39m [32m/[39m fps/train [34m747.05
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 347_776]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.25[39m [32m/[39m train/loss/image [34m12.11[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.25[39m [32m/[39m train/loss/repval [34m1.11[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.95[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.32[39m [32m/[39m fps/train [34m750.66
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 350_576]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.24[39m [32m/[39m train/loss/image [34m12.05[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m9.24[39m [32m/[39m train/loss/repval [34m1.11[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.96[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.18[39m [32m/[39m fps/train [34m737.45
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T164801F480402
+Saved checkpoint.
+[36m--------------------[Agent Step 353_296]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m540.47[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.27[39m [32m/[39m train/loss/image [34m12.27[39m [32m/[39m train/loss/policy [34m0.07[39m [32m/[39m train/loss/rep [34m9.27[39m [32m/[39m train/loss/repval [34m1.14[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.04[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.54[39m [32m/[39m fps/train [34m721.32
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 356_016]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.35[39m [32m/[39m train/loss/image [34m12.46[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.35[39m [32m/[39m train/loss/repval [34m1.14[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.03[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.48[39m [32m/[39m fps/train [34m719.39
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 358_816]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.13[39m [32m/[39m train/loss/image [34m11.89[39m [32m/[39m train/loss/policy [34m0.06[39m [32m/[39m train/loss/rep [34m9.13[39m [32m/[39m train/loss/repval [34m1.07[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.11[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.29[39m [32m/[39m fps/train [34m749.69
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 361_616]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.27[39m [32m/[39m train/loss/image [34m12.14[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.27[39m [32m/[39m train/loss/repval [34m1.03[39m [32m/[39m train/loss/rew [34m0.54[39m [32m/[39m train/loss/value [34m1.17[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.3[39m [32m/[39m fps/train [34m741.36
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 364_400]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.24[39m [32m/[39m train/loss/image [34m12.01[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.24[39m [32m/[39m train/loss/repval [34m1.12[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.24[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.19[39m [32m/[39m fps/train [34m741.96
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 367_184]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.19[39m [32m/[39m train/loss/image [34m11.84[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.19[39m [32m/[39m train/loss/repval [34m1.21[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.26[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.13[39m [32m/[39m fps/train [34m740.28
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 370_000]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m595.73[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.22[39m [32m/[39m train/loss/image [34m12.01[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9.22[39m [32m/[39m train/loss/repval [34m1.26[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.24[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.28[39m [32m/[39m fps/train [34m745.08
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T170301F625571
+Saved checkpoint.
+[36m--------------------[Agent Step 372_592]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.41[39m [32m/[39m train/loss/image [34m12.27[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.41[39m [32m/[39m train/loss/repval [34m1.28[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.22[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m21.44[39m [32m/[39m fps/train [34m685.95
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 375_344]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.3[39m [32m/[39m train/loss/image [34m12.18[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9.3[39m [32m/[39m train/loss/repval [34m1.3[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.18[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.77[39m [32m/[39m fps/train [34m728.68
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 378_128]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.11[39m [32m/[39m train/loss/image [34m11.9[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.11[39m [32m/[39m train/loss/repval [34m1.26[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.05[39m [32m/[39m fps/train [34m737.68
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 380_960]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.2[39m [32m/[39m train/loss/image [34m11.98[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.2[39m [32m/[39m train/loss/repval [34m1.25[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.07[39m [32m/[39m replay/replay_ratio [34m32.68[39m [32m/[39m fps/policy [34m23.56[39m [32m/[39m fps/train [34m758.03
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 383_776]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.99[39m [32m/[39m train/loss/image [34m11.74[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.99[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.05[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.44[39m [32m/[39m fps/train [34m749.95
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 386_592]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m627.17[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.16[39m [32m/[39m train/loss/image [34m11.9[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.16[39m [32m/[39m train/loss/repval [34m1.16[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.45[39m [32m/[39m fps/train [34m750.56
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 389_296]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.21[39m [32m/[39m train/loss/image [34m12.03[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.21[39m [32m/[39m train/loss/repval [34m1.1[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.98[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.46[39m [32m/[39m fps/train [34m714.36
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 392_112]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.11[39m [32m/[39m train/loss/image [34m11.81[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.11[39m [32m/[39m train/loss/repval [34m1.03[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.96[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.38[39m [32m/[39m fps/train [34m748.12
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T171802F087616
+Saved checkpoint.
+[36m--------------------[Agent Step 394_832]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.08[39m [32m/[39m train/loss/image [34m11.55[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.08[39m [32m/[39m train/loss/repval [34m0.96[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.91[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.61[39m [32m/[39m fps/train [34m723.45
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 397_648]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.24[39m [32m/[39m train/loss/image [34m11.94[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m9.24[39m [32m/[39m train/loss/repval [34m0.9[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.93[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.47[39m [32m/[39m fps/train [34m750.98
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 400_480]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m626.73[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.98[39m [32m/[39m train/loss/image [34m11.69[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.98[39m [32m/[39m train/loss/repval [34m0.87[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.9[39m [32m/[39m replay/replay_ratio [34m32.68[39m [32m/[39m fps/policy [34m23.54[39m [32m/[39m fps/train [34m757.63
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 403_216]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.12[39m [32m/[39m train/loss/image [34m11.83[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.12[39m [32m/[39m train/loss/repval [34m0.87[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.89[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m22.79[39m [32m/[39m fps/train [34m725.09
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 406_016]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.09[39m [32m/[39m train/loss/image [34m11.73[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.09[39m [32m/[39m train/loss/repval [34m0.86[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.85[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.27[39m [32m/[39m fps/train [34m749.04
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 408_816]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.99[39m [32m/[39m train/loss/image [34m11.56[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.99[39m [32m/[39m train/loss/repval [34m0.87[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.85[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.32[39m [32m/[39m fps/train [34m742.12
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 411_632]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.98[39m [32m/[39m train/loss/image [34m11.43[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m8.98[39m [32m/[39m train/loss/repval [34m0.85[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.82[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.33[39m [32m/[39m fps/train [34m746.57
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T173302F832149
+Saved checkpoint.
+[36m--------------------[Agent Step 414_336]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.91[39m [32m/[39m train/loss/image [34m11.36[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.91[39m [32m/[39m train/loss/repval [34m0.85[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.82[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m22.5[39m [32m/[39m fps/train [34m724.23
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 417_200]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m627.41[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.97[39m [32m/[39m train/loss/image [34m11.44[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.97[39m [32m/[39m train/loss/repval [34m0.86[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.81[39m [32m/[39m replay/replay_ratio [34m32.32[39m [32m/[39m fps/policy [34m23.74[39m [32m/[39m fps/train [34m755.45
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 419_952]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.09[39m [32m/[39m train/loss/image [34m11.72[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m9.09[39m [32m/[39m train/loss/repval [34m0.87[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.79[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.85[39m [32m/[39m fps/train [34m731.35
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 422_800]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.96[39m [32m/[39m train/loss/image [34m11.4[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.96[39m [32m/[39m train/loss/repval [34m0.89[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.81[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.71[39m [32m/[39m fps/train [34m758.62
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 425_616]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.94[39m [32m/[39m train/loss/image [34m11.5[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.94[39m [32m/[39m train/loss/repval [34m0.9[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.82[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.37[39m [32m/[39m fps/train [34m747.8
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 428_464]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.07[39m [32m/[39m train/loss/image [34m11.49[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.07[39m [32m/[39m train/loss/repval [34m0.92[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.85[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.57[39m [32m/[39m fps/train [34m754.4
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 431_280]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.91[39m [32m/[39m train/loss/image [34m11.51[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.91[39m [32m/[39m train/loss/repval [34m0.94[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.88[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.37[39m [32m/[39m fps/train [34m747.77
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T174803F437834
+Saved checkpoint.
+[36m--------------------[Agent Step 434_112]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m670.95[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.89[39m [32m/[39m train/loss/image [34m11.38[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m8.89[39m [32m/[39m train/loss/repval [34m0.98[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m0.93[39m [32m/[39m replay/replay_ratio [34m32.68[39m [32m/[39m fps/policy [34m22.83[39m [32m/[39m fps/train [34m734.63
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 436_720]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9[39m [32m/[39m train/loss/image [34m11.56[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m9[39m [32m/[39m train/loss/repval [34m1.01[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.95[39m [32m/[39m replay/replay_ratio [34m32.3[39m [32m/[39m fps/policy [34m21.73[39m [32m/[39m fps/train [34m690.98
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 439_568]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.01[39m [32m/[39m train/loss/image [34m11.51[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.01[39m [32m/[39m train/loss/repval [34m1.06[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.99[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.64[39m [32m/[39m fps/train [34m756.45
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 442_384]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.87[39m [32m/[39m train/loss/image [34m11.24[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.87[39m [32m/[39m train/loss/repval [34m1.08[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.02[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.32[39m [32m/[39m fps/train [34m746.27
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 445_248]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.97[39m [32m/[39m train/loss/image [34m11.57[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.97[39m [32m/[39m train/loss/repval [34m1.12[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.06[39m [32m/[39m replay/replay_ratio [34m32.68[39m [32m/[39m fps/policy [34m23.84[39m [32m/[39m fps/train [34m767.17
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 448_144]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.92[39m [32m/[39m train/loss/image [34m11.3[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.92[39m [32m/[39m train/loss/repval [34m1.16[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.07[39m [32m/[39m replay/replay_ratio [34m32.32[39m [32m/[39m fps/policy [34m23.96[39m [32m/[39m fps/train [34m762.42
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 450_960]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m670.89[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.8[39m [32m/[39m train/loss/image [34m11.21[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.8[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.08[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.42[39m [32m/[39m fps/train [34m749.57
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 453_488]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.92[39m [32m/[39m train/loss/image [34m11.4[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.92[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.11[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m20.96[39m [32m/[39m fps/train [34m670.85
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T180304F193767
+Saved checkpoint.
+[36m--------------------[Agent Step 456_208]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.88[39m [32m/[39m train/loss/image [34m11.25[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.88[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.55[39m [32m/[39m train/loss/value [34m1.11[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.61[39m [32m/[39m fps/train [34m723.4
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 459_056]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.87[39m [32m/[39m train/loss/image [34m11.18[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.87[39m [32m/[39m train/loss/repval [34m1.23[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.63[39m [32m/[39m fps/train [34m756.19
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 461_872]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.94[39m [32m/[39m train/loss/image [34m11.34[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.94[39m [32m/[39m train/loss/repval [34m1.24[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.12[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.42[39m [32m/[39m fps/train [34m749.59
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 464_688]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m725.32[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.86[39m [32m/[39m train/loss/image [34m11.1[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.86[39m [32m/[39m train/loss/repval [34m1.24[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.1[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.32[39m [32m/[39m fps/train [34m746.16
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 467_376]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m9.02[39m [32m/[39m train/loss/image [34m11.55[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m9.02[39m [32m/[39m train/loss/repval [34m1.24[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.11[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.32[39m [32m/[39m fps/train [34m714.4
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 470_192]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.84[39m [32m/[39m train/loss/image [34m11.12[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.84[39m [32m/[39m train/loss/repval [34m1.23[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.12[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.4[39m [32m/[39m fps/train [34m748.86
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 472_976]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.73[39m [32m/[39m train/loss/image [34m11.01[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.73[39m [32m/[39m train/loss/repval [34m1.21[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.1[39m [32m/[39m fps/train [34m739.23
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T181804F567826
+Saved checkpoint.
+[36m--------------------[Agent Step 475_696]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.74[39m [32m/[39m train/loss/image [34m10.94[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.74[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.54[39m [32m/[39m fps/train [34m721.33
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 478_480]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.85[39m [32m/[39m train/loss/image [34m10.93[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.85[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.13[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.18[39m [32m/[39m fps/train [34m741.92
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 481_296]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m769.65[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.82[39m [32m/[39m train/loss/image [34m11.09[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.82[39m [32m/[39m train/loss/repval [34m1.15[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.15[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.35[39m [32m/[39m fps/train [34m747.35
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 483_984]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.98[39m [32m/[39m train/loss/image [34m11.36[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.98[39m [32m/[39m train/loss/repval [34m1.12[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.12[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.34[39m [32m/[39m fps/train [34m714.75
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 486_784]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.87[39m [32m/[39m train/loss/image [34m11.11[39m [32m/[39m train/loss/policy [34m0.01[39m [32m/[39m train/loss/rep [34m8.87[39m [32m/[39m train/loss/repval [34m1.05[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.11[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.28[39m [32m/[39m fps/train [34m749.28
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 489_616]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.94[39m [32m/[39m train/loss/image [34m11.3[39m [32m/[39m train/loss/policy [34m7.4e-3[39m [32m/[39m train/loss/rep [34m8.94[39m [32m/[39m train/loss/repval [34m1.02[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.06[39m [32m/[39m replay/replay_ratio [34m32.32[39m [32m/[39m fps/policy [34m23.52[39m [32m/[39m fps/train [34m748.47
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 492_432]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.89[39m [32m/[39m train/loss/image [34m11.16[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.89[39m [32m/[39m train/loss/repval [34m0.98[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.01[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.34[39m [32m/[39m fps/train [34m746.97
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 495_248]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.99[39m [32m/[39m train/loss/image [34m11.14[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.99[39m [32m/[39m train/loss/repval [34m0.96[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m0.95[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.35[39m [32m/[39m fps/train [34m747.05
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T183305F298222
+Saved checkpoint.
+[36m--------------------[Agent Step 497_936]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m797.71[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.79[39m [32m/[39m train/loss/image [34m11.01[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.79[39m [32m/[39m train/loss/repval [34m0.95[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m0.87[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.35[39m [32m/[39m fps/train [34m715.35
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 500_624]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.77[39m [32m/[39m train/loss/image [34m11.01[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.77[39m [32m/[39m train/loss/repval [34m0.92[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m0.84[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.4[39m [32m/[39m fps/train [34m716.72
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 503_456]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.77[39m [32m/[39m train/loss/image [34m10.78[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.77[39m [32m/[39m train/loss/repval [34m0.89[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m0.78[39m [32m/[39m replay/replay_ratio [34m32.68[39m [32m/[39m fps/policy [34m23.53[39m [32m/[39m fps/train [34m757.13
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 506_272]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.77[39m [32m/[39m train/loss/image [34m10.95[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.77[39m [32m/[39m train/loss/repval [34m0.91[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.8[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.44[39m [32m/[39m fps/train [34m750.08
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 509_072]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.72[39m [32m/[39m train/loss/image [34m10.85[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.72[39m [32m/[39m train/loss/repval [34m0.9[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.81[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.19[39m [32m/[39m fps/train [34m737.84
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 511_872]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.78[39m [32m/[39m train/loss/image [34m10.98[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.78[39m [32m/[39m train/loss/repval [34m0.89[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.83[39m [32m/[39m replay/replay_ratio [34m32.69[39m [32m/[39m fps/policy [34m23.28[39m [32m/[39m fps/train [34m749.26
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 514_672]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m831.24[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.77[39m [32m/[39m train/loss/image [34m10.79[39m [32m/[39m train/loss/policy [34m0.05[39m [32m/[39m train/loss/rep [34m8.77[39m [32m/[39m train/loss/repval [34m0.89[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.86[39m [32m/[39m replay/replay_ratio [34m32.31[39m [32m/[39m fps/policy [34m23.19[39m [32m/[39m fps/train [34m737.93
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T184805F415505
+Saved checkpoint.
+[36m--------------------[Agent Step 517_232]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.81[39m [32m/[39m train/loss/image [34m11.09[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.81[39m [32m/[39m train/loss/repval [34m0.92[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m0.9[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m21.27[39m [32m/[39m fps/train [34m680.63
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 520_048]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.7[39m [32m/[39m train/loss/image [34m10.67[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.7[39m [32m/[39m train/loss/repval [34m0.96[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.94[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.38[39m [32m/[39m fps/train [34m748.16
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 522_864]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.78[39m [32m/[39m train/loss/image [34m10.83[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.78[39m [32m/[39m train/loss/repval [34m0.98[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m0.98[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.36[39m [32m/[39m fps/train [34m747.44
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 525_712]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.74[39m [32m/[39m train/loss/image [34m10.72[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.74[39m [32m/[39m train/loss/repval [34m1.02[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.02[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.6[39m [32m/[39m fps/train [34m755.34
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 528_528]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m861.18[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.63[39m [32m/[39m train/loss/image [34m10.58[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.63[39m [32m/[39m train/loss/repval [34m1.09[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.06[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.43[39m [32m/[39m fps/train [34m749.74
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 531_280]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.73[39m [32m/[39m train/loss/image [34m10.73[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.73[39m [32m/[39m train/loss/repval [34m1.12[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.08[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.74[39m [32m/[39m fps/train [34m727.61
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 534_064]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.67[39m [32m/[39m train/loss/image [34m10.68[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.67[39m [32m/[39m train/loss/repval [34m1.19[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.1[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.09[39m [32m/[39m fps/train [34m738.91
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 536_848]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.62[39m [32m/[39m train/loss/image [34m10.64[39m [32m/[39m train/loss/policy [34m0.04[39m [32m/[39m train/loss/rep [34m8.62[39m [32m/[39m train/loss/repval [34m1.2[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.12[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.17[39m [32m/[39m fps/train [34m741.44
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Saving checkpoint[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/ckpt/20250806T190305F568874
+Saved checkpoint.
+[36m--------------------[Agent Step 539_536]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.71[39m [32m/[39m train/loss/image [34m10.7[39m [32m/[39m train/loss/policy [34m0.03[39m [32m/[39m train/loss/rep [34m8.71[39m [32m/[39m train/loss/repval [34m1.22[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.12[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.35[39m [32m/[39m fps/train [34m715.29
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl
+[36m--------------------[Agent Step 542_352]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.53[39m [32m/[39m train/loss/image [34m10.48[39m [32m/[39m train/loss/policy [34m0.01[39m [32m/[39m train/loss/rep [34m8.53[39m [32m/[39m train/loss/repval [34m1.22[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.14[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.28[39m [32m/[39m fps/train [34m744.88
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 545_200]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+episode/score [34m910.71[39m [32m/[39m episode/length [34m1001[39m [32m/[39m train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.75[39m [32m/[39m train/loss/image [34m10.75[39m [32m/[39m train/loss/policy [34m0.02[39m [32m/[39m train/loss/rep [34m8.75[39m [32m/[39m train/loss/repval [34m1.18[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.16[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.59[39m [32m/[39m fps/train [34m754.96
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 547_920]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.49[39m [32m/[39m train/loss/image [34m10.41[39m [32m/[39m train/loss/policy [34m0.01[39m [32m/[39m train/loss/rep [34m8.49[39m [32m/[39m train/loss/repval [34m1.15[39m [32m/[39m train/loss/rew [34m0.56[39m [32m/[39m train/loss/value [34m1.17[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m22.61[39m [32m/[39m fps/train [34m723.6
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+[36m--------------------[Agent Step 550_736]--------------------
+Metrics filtered by[37m:[39m [31m'score|length|fps|ratio|train/loss/|train/rand/'
+train/loss/con [34m0.02[39m [32m/[39m train/loss/dyn [34m8.54[39m [32m/[39m train/loss/image [34m10.28[39m [32m/[39m train/loss/policy [34m3.3e-3[39m [32m/[39m train/loss/rep [34m8.54[39m [32m/[39m train/loss/repval [34m1.11[39m [32m/[39m train/loss/rew [34m0.57[39m [32m/[39m train/loss/value [34m1.16[39m [32m/[39m replay/replay_ratio [34m32.5[39m [32m/[39m fps/policy [34m23.32[39m [32m/[39m fps/train [34m746.27
+Writing metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/metrics.jsonl[39mWriting metrics[37m:[39m [33m/home/hail/logdir/dreamer/20250806T123208/scores.jsonl
+Traceback (most recent call last):
+  File "/home/hail/Project/dreamerv3/dreamerv3/main.py", line 276, in <module>
+    stream,
+  File "/home/hail/Project/dreamerv3/dreamerv3/main.py", line 69, in main
+    batch_size=config.batch_size,
+  File "/home/hail/Project/dreamerv3/embodied/run/train.py", line 97, in train
+    driver(policy, steps=10)
+  File "/home/hail/Project/dreamerv3/embodied/core/driver.py", line 54, in __call__
+    step, episode = self._step(policy, step, episode)
+  File "/home/hail/Project/dreamerv3/embodied/core/driver.py", line 70, in _step
+    self.carry, acts, outs = policy(self.carry, obs, **self.kwargs)
+  File "/home/hail/Project/dreamerv3/embodied/run/train.py", line 93, in <lambda>
+    policy = lambda *args: agent.policy(*args, mode='train')
+  File "/home/hail/anaconda3/envs/dt310/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/hail/Project/dreamerv3/embodied/jax/agent.py", line 249, in policy
+    acts, outs = self._take_outs(internal.fetch_async((acts, outs)))
+  File "/home/hail/Project/dreamerv3/embodied/jax/agent.py", line 400, in _take_outs
+    outs = jax.tree.map(lambda x: x.__array__(), outs)
+  File "/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/tree.py", line 155, in map
+    return tree_util.tree_map(f, tree, *rest, is_leaf=is_leaf)
+  File "/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/tree_util.py", line 344, in tree_map
+    return treedef.unflatten(f(*xs) for xs in zip(*all_leaves))
+  File "/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/tree_util.py", line 344, in <genexpr>
+    return treedef.unflatten(f(*xs) for xs in zip(*all_leaves))
+  File "/home/hail/Project/dreamerv3/embodied/jax/agent.py", line 400, in <lambda>
+    outs = jax.tree.map(lambda x: x.__array__(), outs)
+  File "/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/array.py", line 414, in __array__
+    return np.asarray(self._value, dtype=dtype, **kwds)
+  File "/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/profiler.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/array.py", line 613, in _value
+    self._npy_value = self._single_device_array_to_np_array()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File [96m"/home/hail/Project/dreamerv3/dreamerv3/main.py"[39m, line [94m276[39m, in <module>
+[90m    [39mstream,
+  File [96m"/home/hail/Project/dreamerv3/dreamerv3/main.py"[39m, line [94m69[39m, in main
+[90m    [39mbatch_size=config.batch_size,
+  File [96m"/home/hail/Project/dreamerv3/embodied/run/train.py"[39m, line [94m97[39m, in train
+[90m    [39mdriver(policy, steps=[94m10[39m)
+  File [96m"/home/hail/Project/dreamerv3/embodied/core/driver.py"[39m, line [94m54[39m, in __call__
+[90m    [39mstep, episode = [96mself[39m._step(policy, step, episode)
+  File [96m"/home/hail/Project/dreamerv3/embodied/core/driver.py"[39m, line [94m70[39m, in _step
+[90m    [96mself[39m.carry, acts, outs = policy([96mself[39m.carry, obs, **[96mself[39m.kwargs)
+  File [96m"/home/hail/Project/dreamerv3/embodied/run/train.py"[39m, line [94m93[39m, in <lambda>
+[90m    [39mpolicy = [94mlambda[39m *args: agent.policy(*args, mode=[33m'train'[39m)
+  File [96m"/home/hail/anaconda3/envs/dt310/lib/python3.10/contextlib.py"[39m, line [94m79[39m, in inner
+[90m    [94mreturn[39m func(*args, **kwds)
+  File [96m"/home/hail/Project/dreamerv3/embodied/jax/agent.py"[39m, line [94m249[39m, in policy
+[90m    [39macts, outs = [96mself[39m._take_outs(internal.fetch_async((acts, outs)))
+  File [96m"/home/hail/Project/dreamerv3/embodied/jax/agent.py"[39m, line [94m400[39m, in _take_outs
+[90m    [39mouts = jax.tree.map([94mlambda[39m x: x.__array__(), outs)
+  File [96m"/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/tree.py"[39m, line [94m155[39m, in map
+[90m    [94mreturn[39m tree_util.tree_map(f, tree, *rest, is_leaf=is_leaf)
+  File [96m"/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/tree_util.py"[39m, line [94m344[39m, in tree_map
+[90m    [94mreturn[39m treedef.unflatten(f(*xs) [94mfor[39m xs [95min[39m [96mzip[39m(*all_leaves))
+  File [96m"/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/tree_util.py"[39m, line [94m344[39m, in <genexpr>
+[90m    [94mreturn[39m treedef.unflatten(f(*xs) [94mfor[39m xs [95min[39m [96mzip[39m(*all_leaves))
+  File [96m"/home/hail/Project/dreamerv3/embodied/jax/agent.py"[39m, line [94m400[39m, in <lambda>
+[90m    [39mouts = jax.tree.map([94mlambda[39m x: x.__array__(), outs)
+  File [96m"/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/array.py"[39m, line [94m414[39m, in __array__
+[90m    [94mreturn[39m np.asarray([96mself[39m._value, dtype=dtype, **kwds)
+  File [96m"/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/profiler.py"[39m, line [94m333[39m, in wrapper
+[90m    [94mreturn[39m func(*args, **kwargs)
+  File [96m"/home/hail/anaconda3/envs/dt310/lib/python3.10/site-packages/jax/_src/array.py"[39m, line [94m613[39m, in _value
+[90m    [96mself[39m._npy_value = [96mself[39m._single_device_array_to_np_array()
+[91mKeyboardInterrupt
