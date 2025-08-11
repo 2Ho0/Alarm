@@ -8,6 +8,8 @@ import os
 import uuid
 from typing import Optional
 from dataclasses import dataclass, field
+from typing import List
+import numpy as np
 
 import gymnasium as gym
 import torch
@@ -76,12 +78,47 @@ class TransformerModelConfig:
     n_ctx: int = 2
     layer_norm: Optional[str] = None
     gated_mlp: bool = False
-    activation_fn: str = "relu"
+    # activation_fn: str = "relu"
     state_embedding_type: str = "grid"
     time_embedding_type: str = "embedding"
     seed: int = 1
     device: str = "cpu"
-    mode: str = "rtg"
+    mode: str = "state"
+    
+    max_len: int = 1 + n_ctx // 3
+    d_vocab: int = 128
+    d_vocab_out: int = 128
+    normalization_type: Optional[str] = "LN"
+    eps: float = 1e-4
+    final_rms: bool = False
+    positional_embedding_type: str = "standard"
+    init_weights: bool = True
+    use_attn_result: bool = False
+    use_attn_scale: bool = True
+    use_split_qkv_input: bool = False
+    use_local_attn: bool = False 
+    original_architecture: Optional[str] = None
+    from_checkpoint: bool = False
+    checkpoint_index: Optional[int] = None
+    checkpoint_label_type: Optional[str] = None
+    checkpoint_value: Optional[int] = None
+    tokenizer_name: Optional[str] = None
+    window_size: Optional[int] = None
+    attn_types: Optional[List] = None
+    n_devices: int = 1
+    attention_dir: str = "causal"
+    attn_only: bool = False
+    initializer_range: float = 1.0 / np.sqrt(128)
+    scale_attn_by_inverse_layer_idx: bool = False
+    positional_embedding_type: str = "standard"
+    final_rms: bool = False
+    parallel_attn_mlp: bool = False
+    rotary_dim: Optional[int] = None
+    n_params: Optional[int] = None
+    use_hook_tokens: bool = False
+    gated_mlp: bool = False
+    act_fn: str = "gelu"
+
 
     def __post_init__(self):
         assert self.d_model % self.n_heads == 0
@@ -103,7 +140,7 @@ class TransformerModelConfig:
             self.layer_norm
         )
 
-        assert self.activation_fn in [
+        assert self.act_fn in [
             "relu",
             "gelu",
             "silu",
@@ -111,7 +148,7 @@ class TransformerModelConfig:
             "solu_ln",
             "gelu_fast",
         ], "Activation function must be relu, gelu, silu, gelu_new, solu_ln, or gelu_fast, got {}".format(
-            self.activation_fn
+            self.act_fn
         )
 
         assert self.time_embedding_type in ["embedding", "linear"]

@@ -25,7 +25,7 @@ import yaml
 config_path = '/home/hail/Project/dreamerv3/dreamerv3/configs.yaml'
 with open(config_path, 'r') as f:
     config = yaml.safe_load(f)
-
+from .custom_transformer import MaskableHookedTransformer
 
 
 class TrajectoryTransformer(nn.Module):
@@ -238,7 +238,7 @@ class TrajectoryTransformer(nn.Module):
                 self.transformer_config.d_model,
             )
         else:
-            if isinstance(self.environment_config.observation_space, Dict):
+            if isinstance(self.environment_config.observation_space, (Dict, dict)):
                 n_obs = np.prod(
                     self.environment_config.observation_space["image"].shape
                 )
@@ -261,13 +261,21 @@ class TrajectoryTransformer(nn.Module):
                 self.transformer_config.d_model,
                 np.prod(self.environment_config.observation_space.shape),
             )
-        elif isinstance(self.environment_config.observation_space, Dict):
+        elif isinstance(self.environment_config.observation_space, (Dict, dict)):
             self.state_predictor = nn.Linear(
                 self.transformer_config.d_model,
                 np.prod(
                     self.environment_config.observation_space["image"].shape
                 ),
             )
+        # else:
+
+        #     self.state_predictor = nn.Linear(
+        #         self.transformer_config.d_model,
+        #         np.prod(
+        #             self.environment_config.observation_space["image"].shape
+        #         ),
+        #     )
 
     def initialize_easy_transformer(self):
         # Transformer
@@ -280,7 +288,7 @@ class TrajectoryTransformer(nn.Module):
             d_vocab=self.transformer_config.d_model,
             # 3x the max timestep so we have room for an action, reward, and state per timestep
             n_ctx=self.transformer_config.n_ctx,
-            act_fn=self.transformer_config.activation_fn,
+            act_fn=self.transformer_config.act_fn,
             gated_mlp=self.transformer_config.gated_mlp,
             normalization_type=self.transformer_config.layer_norm,
             attention_dir="causal",
@@ -314,6 +322,9 @@ class DecisionTransformer(TrajectoryTransformer):
             transformer_config=transformer_config,
             **kwargs,
         )
+        self.transformer = MaskableHookedTransformer(
+            cfg=transformer_config,
+        )
         self.num_tasks = 3
         self.model_type = "decision_transformer"
         self.smoothing = smoothing
@@ -322,11 +333,11 @@ class DecisionTransformer(TrajectoryTransformer):
         )
         self.reward_predictor = nn.Linear(self.transformer_config.d_model, 1)
         
-        rssm_config = config['defaults']['agent']['dyn']['rssm']
-        rssm_state_dim = rssm_config['deter'] + (rssm_config['stoch'] * rssm_config['classes'])
+        # rssm_config = config['defaults']['agent']['dyn']['rssm']
+        # rssm_state_dim = rssm_config['deter'] + (rssm_config['stoch'] * rssm_config['classes'])
 
         self.penultimate_layer = nn.Sequential(
-            nn.Linear(rssm_state_dim, penalty_dim // 2),
+            nn.Linear(128, penalty_dim // 2),
             nn.ReLU(),
         )
 
@@ -338,7 +349,7 @@ class DecisionTransformer(TrajectoryTransformer):
 
         self.initialize_weights()
 
-    def label_smoothing_loss(self, preds, targets, class_weights=None):
+    def label_smoothing_loss(self, preds, targets):
         confidence = 1.0 - self.smoothing
         num_classes = preds.size(1)
 
@@ -348,12 +359,7 @@ class DecisionTransformer(TrajectoryTransformer):
 
         log_probs = F.log_softmax(preds, dim=1)
 
-
-        if class_weights is not None:
-            weight_matrix = class_weights.unsqueeze(0)  # (1, C)
-            loss = -true_dist * log_probs * weight_matrix  # (B, C)
-        else:
-            loss = -true_dist * log_probs
+        loss = -true_dist * log_probs
 
         return loss.sum(dim=1).mean()
 
@@ -411,19 +417,6 @@ class DecisionTransformer(TrajectoryTransformer):
 
         if targets:
             targets = targets + time_embeddings
-        
-        # if mlp_learn:
-        #     if mode == "action":
-        #         pooled = action_embeddings.max(dim=1)[0]  # 반환된 튜플에서 첫 번째 값(최대값)만 선택
-        #         print(f"Using ACTION embeddings for task classification (mode: {mode})")
-        #     elif mode == "rtg":
-        #         pooled = reward_embeddings.mean(dim=1)
-        #         print(f"Using RTG (reward) embeddings for task classification (mode: {mode})")
-        #     elif mode == "state":  # state 또는 기본
-        #         pooled = state_embeddings.mean(dim=1)       # -> (B, d_model)
-        #         print(f"Using STATE embeddings for task classification (mode: {mode})")
-            # penultimate_out = self.penultimate_layer(pooled)  # -> (B, penalty_dim//2)
-            # task_preds = self.output_layer(penultimate_out)  # -> (B, num_tasks)
             
         # create the token embeddings
         token_embeddings = torch.zeros(
@@ -492,36 +485,84 @@ class DecisionTransformer(TrajectoryTransformer):
             block=block_size,
         )
         return rtg_embeddings
-
+    
     def get_logits(self, x, batch_size, seq_length, no_actions: bool):
+        # x는 [batch_size, interleaved_seq_len, d_model] 모양의 텐서입니다.
+
         if no_actions is False:
-            # TODO replace with einsum
-            if (x.shape[1] % 3 != 0) and ((x.shape[1] + 1) % 3 == 0):
-                x = torch.concat((x, x[:, -2].unsqueeze(1)), dim=1)
-
-            x = x.reshape(
-                batch_size, seq_length, 3, self.transformer_config.d_model
+            # 인터리빙된 시퀀스는 (rtg, state, action) 토큰으로 구성됩니다.
+            # action 시퀀스가 하나 짧으므로, 전체 길이는 3의 배수가 아닐 수 있습니다.
+            
+            # 3개씩 묶을 수 있는 최대 길이를 계산합니다.
+            num_tokens = x.shape[1]
+            num_triplets = num_tokens // 3
+            
+            # 완전한 triplet을 형성하는 부분만 잘라냅니다.
+            x_triplets = x[:, :num_triplets * 3]
+            
+            # [batch, num_triplets, 3, d_model] 모양으로 바꿉니다.
+            x_reshaped = x_triplets.reshape(
+                batch_size, num_triplets, 3, self.transformer_config.d_model
             )
-            x = x.permute(0, 2, 1, 3)
-
-            # predict next return given state and action
-            reward_preds = self.predict_rewards(x[:, 2])
-            # predict next state given state and action
-            state_preds = self.predict_states(x[:, 2])
-            # predict next action given state and RTG
-            action_preds = self.predict_actions(x[:, 1])
+            
+            # [batch, stream_type, num_triplets, d_model] 모양으로 축을 바꿉니다.
+            x_streams = x_reshaped.permute(0, 2, 1, 3)
+            
+            # 이제 각 스트림이 분리되었습니다.
+            # x_streams[:, 0] -> rtg 스트림
+            # x_streams[:, 1] -> state 스트림
+            # x_streams[:, 2] -> action 스트림
+            
+            # 각 스트림을 사용하여 다음 토큰을 예측합니다.
+            reward_preds = self.predict_rewards(x_streams[:, 2])
+            state_preds = self.predict_states(x_streams[:, 2])
+            action_preds = self.predict_actions(x_streams[:, 1])
             return state_preds, action_preds, reward_preds
 
-        else:
-            print('[error]no_actions is True')
-            # TODO replace with einsum
-            x = x.reshape(
-                batch_size, seq_length, 2, self.transformer_config.d_model
+        else: # no_actions is True
+            # 이 분기는 (rtg, state) 쌍으로만 구성됩니다.
+            num_tokens = x.shape[1]
+            num_pairs = num_tokens // 2
+            
+            x_pairs = x[:, :num_pairs * 2]
+            
+            x_reshaped = x_pairs.reshape(
+                batch_size, num_pairs, 2, self.transformer_config.d_model
             )
-            x = x.permute(0, 2, 1, 3)
-            # predict next action given state and RTG
-            action_preds = self.predict_actions(x[:, 1])
+            x_streams = x_reshaped.permute(0, 2, 1, 3)
+            
+            action_preds = self.predict_actions(x_streams[:, 1])
             return None, action_preds, None
+
+    # def get_logits(self, x, batch_size, seq_length, no_actions: bool):
+    #     if no_actions is False:
+    #         # x has shape [batch_size, 3 * seq_length, d_model]
+    #         actual_seq_length = x.shape[1] // 3
+    #         x = x.reshape(
+    #             batch_size, actual_seq_length, 3, self.transformer_config.d_model
+    #         )
+    #         x = x.permute(0, 2, 1, 3)
+
+    #         # predict next return given state and action
+    #         reward_preds = self.predict_rewards(x[:, 2])
+    #         # predict next state given state and action
+    #         state_preds = self.predict_states(x[:, 2])
+    #         # predict next action given state and RTG
+    #         action_preds = self.predict_actions(x[:, 1])
+    #         return state_preds, action_preds, reward_preds
+
+    #     else: # no_actions is True
+    #         # FIX: 전달받은 seq_length 대신, 입력 텐서 x의 실제 모양에서
+    #         #      시퀀스 길이를 추론합니다.
+    #         actual_seq_length = x.shape[1] // 2
+    #         x = x.reshape(
+    #             batch_size, actual_seq_length, 2, self.transformer_config.d_model
+    #         )
+    #         x = x.permute(0, 2, 1, 3)
+    #         # predict next action given state and RTG
+    #         action_preds = self.predict_actions(x[:, 1])
+    #         return None, action_preds, None
+
 
     def forward(
         self,
@@ -530,12 +571,24 @@ class DecisionTransformer(TrajectoryTransformer):
         actions: TT["batch", "position"],  # noqa: F821
         rtgs: TT["batch", "position"],  # noqa: F821
         timesteps: TT["batch", "position"],  # noqa: F821
+        attention_mask = None,
         pad_action: bool = True,
         mlp_learn: bool = False,
-        mode: str = "rtg",
+        mode: str = "state",
     ) -> Tuple[
         TT[...], TT["batch", "position"], TT["batch", "position"]  # noqa: F821
     ]:
+        final_attention_mask = attention_mask
+
+        if states.ndim == 4:
+            states = states.unsqueeze(0)
+            if actions is not None:
+                actions = actions.unsqueeze(0)
+            rtgs = rtgs.unsqueeze(0)
+            timesteps = timesteps.unsqueeze(0)
+            if final_attention_mask is not None:
+                final_attention_mask = final_attention_mask.unsqueeze(0)
+
         batch_size = states.shape[0]
         seq_length = states.shape[1]
         no_actions = actions is None
@@ -555,18 +608,15 @@ class DecisionTransformer(TrajectoryTransformer):
             #             batch_size, 1, 1, dtype=torch.long, device=actions.device)], dim=1)
 
         # embed states and recast back to (batch, block_size, n_embd)
-        
-            
+
         token_embeddings = self.to_tokens(states, actions, rtgs, timesteps, mlp_learn)
-        x = self.transformer(token_embeddings)
+        x = self.transformer(token_embeddings,attention_mask = final_attention_mask)
 
         state_preds, action_preds, reward_preds = self.get_logits(
             x, batch_size, seq_length, no_actions=no_actions
         )
 
         if mlp_learn:
-            # ✅ 항상 transformer 출력 사용 (통합적 표현)
-
             if mode == "state":
                 pooled = x[:, ::3, :].detach().clone().view(batch_size, -1)
             elif mode == "rtg":

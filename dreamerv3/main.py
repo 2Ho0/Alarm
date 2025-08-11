@@ -237,19 +237,19 @@ def make_env(config, index, **overrides):
   # TaskManager 지원 - 연속 학습을 위한 동적 태스크 변경
   task_manager = overrides.pop('task_manager', None)
   
-  # miniGrid 태스크의 경우, suite를 'minigrid'로 설정
-  task = config.task
-  if 'MiniGrid-' in task:
-      suite = 'minigrid'
+  if task_manager is not None:
+    # TaskManager가 있으면 현재 태스크 동적 선택
+    current_task_name = task_manager.get_current_task_name()
+    suite = 'dmc'  # DMC 환경을 사용
+    task = current_task_name  # cartpole_swingup 형태
   else:
-      suite = task.split('_', 1)[0]
-  
-  # if task_manager is not None:
-  #   # TaskManager가 있으면 현재 태스크 동적 선택
-  #   suite, task = task_manager.get_current_task_name().split('_', 1)
-  # else:
-  #   # 기존 방식: 고정된 태스크 사용
-  #   suite, task = config.task.split('_', 1) # config.task 변수에서 '_'를 기준으로 문자열을 나누어 suite, task 변수에 저장
+    # 기존 방식: 고정된 태스크 사용
+    task = config.task
+    # miniGrid 태스크의 경우, suite를 'minigrid'로 설정
+    if 'MiniGrid-' in task:
+        suite = 'minigrid'
+    else:
+        suite, task = config.task.split('_', 1) # config.task 변수에서 '_'를 기준으로 문자열을 나누어 suite, task 변수에 저장
   if suite == 'memmaze':
     from embodied.envs import from_gym
     import memory_maze  # noqa

@@ -11,13 +11,6 @@ import numpy as np
 import optax
 
 from . import rssm
-from .dt_task_shift import TaskShiftDetector  # 앞서 통합한 코드
-from dreamerv3.Decision_Transformer.src.decision_transformer.train import dt_train
-from dreamerv3.Decision_Transformer.src.models.trajectory_transformer import (DecisionTransformer)
-from dreamerv3.Decision_Transformer.src.config import( EnvironmentConfig, OfflineTrainConfig, TransformerModelConfig)
-from dreamerv3.Decision_Transformer.src.environments.environments import make_env
-from dreamerv3.Decision_Transformer.src.decision_transformer.offline_dataset import TrajectoryDataset
-
 
 f32 = jnp.float32
 i32 = jnp.int32
@@ -65,15 +58,15 @@ class Agent(embodied.jax.Agent):
     # 임베딩 차원은 RSSM feature 차원과 동일해야 하므로, config나 enc/dyn 모듈에서 가져와야 함
     # 임시로 input_dim을 config에서 가져오거나, enc/dyn의 output_dim을 참조
     # 예시: input_dim=self.enc.outdim 또는 config.task_shift_input_dim 등
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    classifier_path = os.path.join(base_dir, "mlp_task_classifier_10240.pt")
+    # base_dir = os.path.dirname(os.path.abspath(__file__))
+    # classifier_path = os.path.join(base_dir, "mlp_task_classifier_10240.pt")
 
-    self.task_shift_detector = TaskShiftDetector(
-      classifier_path=classifier_path,
-      input_dim=10240, # config.dyn.deter + config.dyn.stoch*config.dyn.classes
-      recent_k=8,
-      device="cuda"
-    )
+    # self.task_shift_detector = TaskShiftDetector(
+    #   classifier_path=classifier_path,
+    #   input_dim=10240, # config.dyn.deter + config.dyn.stoch*config.dyn.classes
+    #   recent_k=8,
+    #   device="cuda"
+    # )
 
     scalar = elements.Space(np.float32, ())
     binary = elements.Space(bool, (), 0, 2)
@@ -157,66 +150,9 @@ class Agent(embodied.jax.Agent):
           enc=enc_entry, dyn=dyn_entry, dec=dec_entry)))
     return carry, act, out
 
-  def _calculate_returns(self, rewards):
-        """Calculate returns-to-go for each timestep.
-        
-        Args:
-            rewards: Reward tensor of shape [B, T]
-            
-        Returns:
-            returns_to_go: Tensor of shape [B, T] containing returns-to-go
-        """
-        B, T = rewards.shape
-        returns = jnp.zeros_like(rewards)
-        
-        # Calculate returns-to-go by summing up future rewards
-        for t in reversed(range(T)):
-            if t == T-1:
-                returns = returns.at[:, t].set(rewards[:, t])
-            else:
-                returns = returns.at[:, t].set(rewards[:, t] + returns[:, t+1])
-                
-        return returns
-
+  
   def train(self, carry, data):
     carry, obs, prevact, stepid = self._apply_replay_context(carry, data)
-    
-    
-
-    # 1. Extract states and create DT batch
-    B, T = obs['is_first'].shape
-    dt_batch = {
-        'states': obs['image'],               # [B, T, H, W, C]
-        'actions': prevact['action'],         # [B, T, action_dim]
-        'rewards': obs['reward'],             # [B, T]
-        'returns_to_go': self._calculate_returns(obs['reward']),  # [B, T]
-        'attention_mask': ~obs['is_last'],    # [B, T]
-        'timesteps': jnp.arange(T)[None, :].repeat(B, 0)  # [B, T]
-    }
-
-    env = make_env(EnvironmentConfig, seed=0, idx=0, run_name="dev")()
-    EnvironmentConfig.action_space = env.action_space
-    EnvironmentConfig.observation_space = env.observation_space
-    print("Environment created:", env)
-    transformer_config_instance = TransformerModelConfig()
-    model = DecisionTransformer(
-        environment_config=EnvironmentConfig,
-        transformer_config=transformer_config_instance,
-    )
-    # 2. Create TrajectoryDataset from dt_batch
-
-    dataset = TrajectoryDataset.from_dreamer_batch(
-        dt_batch=dt_batch,
-        max_len=T,  # Use full sequence length
-    )
-
-    task_shift = dt_train(model = model,
-                          trajectory_data_set = dataset,
-                          env = env,
-                          offline_config = OfflineTrainConfig,
-                          )
-
-    
 
     metrics, (carry, entries, outs, mets) = self.opt(
         self.loss, carry, obs, prevact, training=True, has_aux=True)

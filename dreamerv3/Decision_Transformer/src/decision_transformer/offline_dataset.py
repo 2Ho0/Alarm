@@ -361,7 +361,7 @@ class TrajectoryDataset(Dataset):
             print(f"[ERROR] None found in __getitem__ result at idx {idx}")
             print("task_id:", task_id)
             raise ValueError("NoneType in dataset sample")
-        return s, a, r, d, rtg, ti, m, task_id
+        return s, a, r, d, rtg, ti, m, 0, task_id
 
     @classmethod
     def from_dreamer_batch(cls, dt_batch, max_len, device="cpu"):
@@ -375,12 +375,18 @@ class TrajectoryDataset(Dataset):
         dataset.pct_traj = 1.0
         dataset.normalize_state = False
         dataset.rtg_scale = 1
+        dataset.preprocess_observations = None
         
         # Convert JAX arrays to PyTorch tensors
         states = torch.from_numpy(np.array(dt_batch['states']))    # [B, T, H, W, C]
         actions = torch.from_numpy(np.array(dt_batch['actions']))  # [B, T, action_dim]
         rewards = torch.from_numpy(np.array(dt_batch['rewards']))  # [B, T]
         dones = ~torch.from_numpy(np.array(dt_batch['attention_mask']))  # [B, T]
+
+        if len(states.shape) > 4 and states.shape[-1] == 3: # Assuming image observations [B, T, H, W, C]
+             dataset.observation_type = "image"
+        else:
+             dataset.observation_type = "flat"
         
         # Split tensors into trajectory lists using done signals
         B, T = states.shape[:2]

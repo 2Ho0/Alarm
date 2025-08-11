@@ -26,6 +26,15 @@ defaults:
     fps: 15
     user: ''
 
+  task_manager:
+    enabled: False
+    domain: ''
+    tasks: ['default']
+    strategy: 'sequential'
+    switch_interval: 1000
+    random_seed: 42
+    curriculum_order: ['default']
+
   env:
     atari: {size: [96, 96], repeat: 4, sticky: True, gray: True, actions: all, lives: unused, noops: 30, autostart: False, pooling: 2, aggregate: max, resize: pillow, clip_reward: False}
     procgen: {size: [96, 96], resize: pillow}
@@ -227,3 +236,37 @@ debug:
     .*\.hidden: 3
     .*\.blocks: 4
     .*\.depth: 2
+
+# Continual Learning Examples
+continual_cartpole:
+  task_manager:
+    enabled: True
+    domain: 'cartpole'
+    tasks: ['swingup', 'balance', 'swingup_sparse']
+    strategy: 'sequential'
+    switch_interval: 500
+    random_seed: 42
+  task: dmc_cartpole_swingup # Ignored if task_manager.enabled is True
+  run: {steps: 1.5e6, envs: 8}
+
+continual_walker:
+  task_manager:
+    enabled: True
+    domain: 'walker'
+    tasks: ['stand', 'walk', 'run']
+    strategy: 'curriculum'
+    switch_interval: 1000
+    curriculum_order: ['stand', 'walk', 'run']
+  task: dmc_walker_walk
+  run: {steps: 2e6, envs: 16}
+
+continual_random:
+  task_manager:
+    enabled: True
+    domain: 'quadruped'
+    tasks: ['walk', 'run', 'escape']
+    strategy: 'random'
+    switch_interval: 200
+    random_seed: 123
+  task: dmc_quadruped_walk
+  run: {steps: 1e6, envs: 12}
