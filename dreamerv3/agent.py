@@ -54,20 +54,6 @@ class Agent(embodied.jax.Agent):
         nn.cast(x['deter']),
         nn.cast(x['stoch'].reshape((*x['stoch'].shape[:-2], -1)))], -1)
     
-    # Agent 초기화 시 추가
-    # 임베딩 차원은 RSSM feature 차원과 동일해야 하므로, config나 enc/dyn 모듈에서 가져와야 함
-    # 임시로 input_dim을 config에서 가져오거나, enc/dyn의 output_dim을 참조
-    # 예시: input_dim=self.enc.outdim 또는 config.task_shift_input_dim 등
-    # base_dir = os.path.dirname(os.path.abspath(__file__))
-    # classifier_path = os.path.join(base_dir, "mlp_task_classifier_10240.pt")
-
-    # self.task_shift_detector = TaskShiftDetector(
-    #   classifier_path=classifier_path,
-    #   input_dim=10240, # config.dyn.deter + config.dyn.stoch*config.dyn.classes
-    #   recent_k=8,
-    #   device="cuda"
-    # )
-
     scalar = elements.Space(np.float32, ())
     binary = elements.Space(bool, (), 0, 2)
     self.rew = embodied.jax.MLPHead(scalar, **config.rewhead, name='rew')
@@ -122,7 +108,7 @@ class Agent(embodied.jax.Agent):
         self.dec.initial(batch_size),
         jax.tree.map(zeros, self.act_space))
 
-  def init_train(self, batch_size):
+  def init_train(self, batch_size, **kwargs):
     return self.init_policy(batch_size)
 
   def init_report(self, batch_size):
@@ -150,12 +136,13 @@ class Agent(embodied.jax.Agent):
           enc=enc_entry, dyn=dyn_entry, dec=dec_entry)))
     return carry, act, out
 
-  
+
   def train(self, carry, data):
-    carry, obs, prevact, stepid = self._apply_replay_context(carry, data)
+    print("train start")
+    carry, obs, prevact, stepid, task_shift_result = self._apply_replay_context(carry, data)
 
     metrics, (carry, entries, outs, mets) = self.opt(
-        self.loss, carry, obs, prevact, training=True, has_aux=True)
+        self.loss, carry, obs, prevact, training=True, has_aux=True, task_shift_result=task_shift_result)
     metrics.update(mets)
     self.slowval.update()
     outs = {}
@@ -171,7 +158,8 @@ class Agent(embodied.jax.Agent):
     carry = (*carry, {k: data[k][:, -1] for k in self.act_space})
     return carry, outs, metrics
 
-  def loss(self, carry, obs, prevact, training):
+  def loss(self, carry, obs, prevact, training, task_shift_result):
+    print("task_shift_result: ", task_shift_result)
     enc_carry, dyn_carry, dec_carry = carry
     reset = obs['is_first']
     B, T = reset.shape
@@ -202,6 +190,9 @@ class Agent(embodied.jax.Agent):
     B, T = reset.shape
     shapes = {k: v.shape for k, v in losses.items()}
     assert all(x == (B, T) for x in shapes.values()), ((B, T), shapes)
+
+    if task_shift_result is True:
+      print("Task shift detected")
 
     # Imagination
     K = min(self.config.imag_last or T, T)
@@ -266,7 +257,7 @@ class Agent(embodied.jax.Agent):
     if not self.config.report:
       return carry, {}
 
-    carry, obs, prevact, _ = self._apply_replay_context(carry, data)
+    carry, obs, prevact, _, task_shift_result = self._apply_replay_context(carry, data)
     (enc_carry, dyn_carry, dec_carry) = carry
     B, T = obs['is_first'].shape
     RB = min(6, B)
@@ -274,7 +265,7 @@ class Agent(embodied.jax.Agent):
 
     # Train metrics
     _, (new_carry, entries, outs, mets) = self.loss(
-        carry, obs, prevact, training=False)
+        carry, obs, prevact, training=False, task_shift_result=task_shift_result)
     mets.update(mets)
 
     # Grad norms
@@ -282,7 +273,7 @@ class Agent(embodied.jax.Agent):
       for key in self.scales:
         try:
           lossfn = lambda data, carry: self.loss(
-              carry, obs, prevact, training=False)[1][2]['losses'][key].mean()
+              carry, obs, prevact, training=False, task_shift_result=task_shift_result)[1][2]['losses'][key].mean()
           grad = nj.grad(lossfn, self.modules)(data, carry)[-1]
           metrics[f'gradnorm/{key}'] = optax.global_norm(grad)
         except KeyError:
@@ -332,10 +323,11 @@ class Agent(embodied.jax.Agent):
     carry = (enc_carry, dyn_carry, dec_carry)
     stepid = data['stepid']
     obs = {k: data[k] for k in self.obs_space}
+    task_shift_result = data['task_shift_result']
     prepend = lambda x, y: jnp.concatenate([x[:, None], y[:, :-1]], 1)
     prevact = {k: prepend(prevact[k], data[k]) for k in self.act_space}
     if not self.config.replay_context:
-      return carry, obs, prevact, stepid
+      return carry, obs, prevact, stepid, task_shift_result
 
     K = self.config.replay_context
     nested = elements.tree.nestdict(data)
@@ -350,12 +342,14 @@ class Agent(embodied.jax.Agent):
     rep_prevact = {k: data[k][:, K - 1: -1] for k in self.act_space}
     rep_stepid = rhs(stepid)
 
+    rep_task_shift_result = rhs(task_shift_result)
+
     first_chunk = (data['consec'][:, 0] == 0)
-    carry, obs, prevact, stepid = jax.tree.map(
+    carry, obs, prevact, stepid, task_shift_result = jax.tree.map(
         lambda normal, replay: nn.where(first_chunk, replay, normal),
-        (carry, rhs(obs), rhs(prevact), rhs(stepid)),
-        (rep_carry, rep_obs, rep_prevact, rep_stepid))
-    return carry, obs, prevact, stepid
+        (carry, rhs(obs), rhs(prevact), rhs(stepid), rep_task_shift_result),
+        (rep_carry, rep_obs, rep_prevact, rep_stepid, rep_task_shift_result))
+    return carry, obs, prevact, stepid, task_shift_result
 
   def _make_opt(
       self,

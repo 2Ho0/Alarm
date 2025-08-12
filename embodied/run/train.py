@@ -120,7 +120,6 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
     for _ in range(should_train(step)):
       with elements.timer.section('stream_next'):
         batch = next(stream_train)
-      carry_train[0], outs, mets = agent.train(carry_train[0], batch)
       
       # Decision Transformer로 Task Shift 감지 (NumPy/PyTorch 영역)
       with elements.timer.section('dt_task_shift'):
@@ -140,14 +139,17 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
             dt_batch=dt_batch_data, max_len=T
         )
         
-        task_shift_result = dt_train(
+        task_shift = dt_train(
             model=dt_model,
             trajectory_data_set=dt_dataset,
             num_actions=num_actions,
             offline_config=dt_offline_config
         )
-        # DT 결과를 메트릭에 추가하여 로깅
-        print("task_shift_result: ", task_shift_result)
+        target_shape = (B, T, T)
+        task_shift_batched = np.full(target_shape, task_shift, dtype=bool)
+      
+      batch['task_shift_result'] = task_shift_batched
+      carry_train[0], outs, mets = agent.train(carry_train[0], batch)
 
       train_fps.step(batch_steps)
       if 'replay' in outs:
@@ -174,7 +176,13 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
     if should_report(step) and len(replay):
       agg = elements.Agg()
       for _ in range(args.consec_report * args.report_batches):
-        carry_report, mets = agent.report(carry_report, next(stream_report))
+        batch_report = next(stream_report)
+      
+        target_shape = (16, 33, 65)
+        task_shift_batched = np.full(target_shape, False, dtype=bool)
+        batch_report['task_shift_result'] = task_shift_batched
+
+        carry_report, mets = agent.report(carry_report, batch_report)
         agg.add(mets)
       logger.add(agg.result(), prefix='report')
 

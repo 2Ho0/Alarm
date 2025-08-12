@@ -59,6 +59,7 @@ class Agent(embodied.Agent):
     self.logdir = elements.Path(config.logdir)
 
     ext_space = self.model.ext_space  # Extra inputs to train and report.
+    ext_space['task_shift_result'] = elements.Space(np.bool_, shape=(65,))
     elements.print('Observations', color='cyan')
     [elements.print(f'  {k:<16} {v}') for k, v in obs_space.items()]
     elements.print('Actions', color='cyan')
@@ -315,6 +316,9 @@ class Agent(embodied.Agent):
   @elements.timer.section('jaxagent_report')
   def report(self, carry, data):
     seed = data.pop('seed')
+    
+    print("report data keys: ", data.keys())
+    print("report spaces keys: ", self.spaces.keys())
     assert sorted(data.keys()) == sorted(self.spaces.keys()), (
         sorted(data.keys()), sorted(self.spaces.keys()))
     with self.train_lock:

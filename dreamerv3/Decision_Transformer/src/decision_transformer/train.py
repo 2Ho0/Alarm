@@ -167,14 +167,16 @@ def dt_train(
             # softmax over task logits
             task_probs = t.softmax(recent_task_preds, dim=-1)  # (B, num_tasks)
             mean_task_probs = task_probs.mean(dim=0)  # (num_tasks,) = e.g., (3,)
-
+            
             max_prob, current_task = t.max(mean_task_probs, dim=-1)  # current_task: int (0~2)
+            
 
-            if pre_task == current_task:
+            if pre_task == current_task.item():
                 task_shift_detected = False
                     
             else:
                 task_shift_detected = True
+                pre_task = current_task
                 return task_shift_detected
 
             pre_task = current_task
