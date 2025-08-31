@@ -26,7 +26,7 @@ if __name__ == "__main__":
         fully_observed=args.fully_observed,
         max_steps=args.max_steps,
         capture_video=args.capture_video,
-        view_size=args.view_size,
+        # view_size=args.view_size,
         device=run_config.device,
     )
 

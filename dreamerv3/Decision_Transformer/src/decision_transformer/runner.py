@@ -7,26 +7,31 @@ from typing import Callable
 import torch as t
 
 import wandb
-from src.config import (
+
+import sys
+import os
+sys.path.append('/home/hail/Project/dreamerv3') 
+
+from dreamerv3.Decision_Transformer.src.config import (
     ConfigJsonEncoder,
     EnvironmentConfig,
     OfflineTrainConfig,
     RunConfig,
     TransformerModelConfig,
 )
-from src.environments.registration import register_envs
-from src.models.trajectory_transformer import (
+from dreamerv3.Decision_Transformer.src.environments.registration import register_envs
+from dreamerv3.Decision_Transformer.src.models.trajectory_transformer import (
     DecisionTransformer,
 )
 
 # from .model import DecisionTransformer
-from .offline_dataset import (
+from dreamerv3.Decision_Transformer.src.decision_transformer.offline_dataset import (
     TrajectoryDataset,
     TrajectoryVisualizer,
     one_hot_encode_observation,
 )
-from .train import train
-from .utils import get_max_len_from_model_type
+from dreamerv3.Decision_Transformer.src.decision_transformer.offline_train import offline_train
+from dreamerv3.Decision_Transformer.src.decision_transformer.utils import get_max_len_from_model_type
 
 
 
@@ -35,7 +40,6 @@ def run_decision_transformer(
     transformer_config: TransformerModelConfig,
     offline_config: OfflineTrainConfig,
     make_env: Callable,
-    dt_batch: dict,
 ):
     warnings.filterwarnings("ignore", category=DeprecationWarning)
     device = set_device(run_config)
@@ -43,9 +47,11 @@ def run_decision_transformer(
     if offline_config.trajectory_path is None:
         raise ValueError("Must specify a trajectory path.")
 
-    max_len = get_max_len_from_model_type(
-        offline_config.model_type, transformer_config.n_ctx
-    )
+    # max_len = get_max_len_from_model_type(
+    #     offline_config.model_type, transformer_config.n_ctx
+    # )
+
+    max_len = transformer_config.max_len
 
     preprocess_observations = (
         None
@@ -83,13 +89,15 @@ def run_decision_transformer(
     environment_config = EnvironmentConfig(
         env_id=env_id,
         one_hot_obs=first_dataset.observation_type == "one_hot",
-        view_size=first_dataset.metadata["args"]["view_size"],
+        # view_size=first_dataset.metadata["args"]["view_size"],
         fully_observed=False,
         capture_video=False,
         render_mode="rgb_array",
     )
 
     env = make_env(environment_config, seed=0, idx=0, run_name="dev")()
+    num_actions = int(env.action_space.n)
+    
 
     wandb_args = (
         run_config.__dict__
@@ -118,11 +126,10 @@ def run_decision_transformer(
         transformer_config=transformer_config,
     )
 
-    result = train(
+    result = offline_train(
         model=model,
         trajectory_data_set=task_datasets,  
-        env=env,
-        make_env=make_env,
+        num_actions=num_actions,
         device=device,
         offline_config=offline_config,
     )

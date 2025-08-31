@@ -128,10 +128,71 @@ class TrajectoryTransformer(nn.Module):
             block=block_size,
         )
         return time_embeddings
+    # def get_state_embedding(self, states):
+    #     # states original shape: (batch, block, height, width, channel)
+    #     block_size = states.shape[1]
+        
+    #     # Reshape for batch processing and permute for PyTorch CNN (N, C, H, W)
+    #     states_reshaped = rearrange(states, "b k h w c -> (b k) c h w")
+
+    #     # Pass the float tensor to the state_embedding module (CNN or Linear)
+    #     state_embeddings_flat = self.state_embedding(
+    #         states_reshaped.type(torch.float32).contiguous()
+    #     )
+
+    #     # Reshape the flat embeddings back to (batch, block, n_embd)
+    #     state_embeddings = rearrange(
+    #         state_embeddings_flat, "(b k) d -> b k d", k=block_size
+    #     )
+        
+    #     return state_embeddings
+    # def get_state_embedding(self, states):
+    #     # states original shape: (batch, block, height, width, channel)
+    #     block_size = states.shape[1]
+
+    #     # Check the actual type of the state_embedding layer to decide the processing method
+    #     if isinstance(self.state_embedding, MiniGridConvEmbedder):
+    #         # --- Path for CNN Embedder ---
+    #         # It expects the full integer tensor (object, color, state).
+            
+    #         # 1. Reshape for processing: (batch * block, height, width, channel)
+    #         states_reshaped = rearrange(states, "b k h w c -> (b k) h w c")
+
+    #         # 2. Pass the integer tensor to the embedding module.
+    #         # Expected output shape: (batch * block, n_embd)
+    #         state_embeddings_flat = self.state_embedding(states_reshaped.long())
+
+    #     elif isinstance(self.state_embedding, nn.Linear):
+    #         # --- Path for Linear Embedder ---
+    #         # It expects a flattened float vector.
+
+    #         # 1. Flatten the image dimensions (h, w, c) into a single feature vector.
+    #         # Shape becomes: (batch * block, height * width * channel)
+    #         states_flat = rearrange(
+    #             states, "b k h w c -> (b k) (h w c)"
+    #         )
+
+    #         # 2. Pass the float vector to the linear layer.
+    #         # Expected output shape: (batch * block, n_embd)
+    #         state_embeddings_flat = self.state_embedding(
+    #             states_flat.type(torch.float32).contiguous()
+    #         )
+        
+    #     else:
+    #         # Handle unexpected layer types
+    #         raise TypeError(f"Unsupported state_embedding type: {type(self.state_embedding)}")
+
+    #     # Reshape the flat embeddings back to (batch, block, n_embd)
+    #     state_embeddings = rearrange(
+    #         state_embeddings_flat, "(b k) d -> b k d", k=block_size
+    #     )
+        
+    #     return state_embeddings
 
     def get_state_embedding(self, states):
         # embed states and recast back to (batch, block_size, n_embd)
         block_size = states.shape[1]
+    
         if self.transformer_config.state_embedding_type.lower() in [
             "cnn",
             "vit",
@@ -143,6 +204,21 @@ class TrajectoryTransformer(nn.Module):
             state_embeddings = self.state_embedding(
                 states.type(torch.float32).contiguous()
             )  # (batch * block_size, n_embd)
+            # object_indices = states[..., 0]
+
+            # # 2. nn.Embedding 레이어가 요구하는 torch.long 타입으로 변환합니다.
+            # object_indices_long = object_indices.long()
+            # # -------------------------
+
+            # # 3. 올바르게 변환된 정수 인덱스 텐서를 state_embedding 모듈에 전달합니다.
+            # #    MiniGridConvEmbedder는 (N, H, W) 입력을 받아 (N, n_embd)를 출력하도록 설계되었을 것입니다.
+            # states_reshaped = rearrange(object_indices_long, "b k h w -> (b k) h w")
+            # state_embeddings_flat = self.state_embedding(states_reshaped)
+
+            # # 4. 최종적으로 (batch, block, n_embd) 모양으로 다시 변환합니다.
+            # state_embeddings = rearrange(
+            #     state_embeddings_flat, "(b k) d -> b k d", k=block_size
+            # )
 
         elif self.transformer_config.state_embedding_type.lower() == "grid":
             states = rearrange(
@@ -170,16 +246,19 @@ class TrajectoryTransformer(nn.Module):
         block_size = actions.shape[1]
         if block_size == 0:
             return None  # no actions to embed
-        actions = rearrange(
-            actions, "batch block action -> (batch block) action"
-        )
-        # I don't see why we need this but we do? Maybe because of the sequential?
-        action_embeddings = self.action_embedding(actions).flatten(1)
-        action_embeddings = rearrange(
-            action_embeddings,
-            "(batch block) n_embd -> batch block n_embd",
-            block=block_size,
-        )
+        if actions.ndim == 3:
+            actions = rearrange(
+                actions, "batch block action -> (batch block) action"
+            )
+            # I don't see why we need this but we do? Maybe because of the sequential?
+            action_embeddings = self.action_embedding(actions).flatten(1)
+            action_embeddings = rearrange(
+                action_embeddings,
+                "(batch block) n_embd -> batch block n_embd",
+                block=block_size,
+            )
+        elif actions.ndim == 2:
+            action_embeddings = self.action_embedding(actions)
         return action_embeddings
 
     def predict_states(self, x):
@@ -229,6 +308,20 @@ class TrajectoryTransformer(nn.Module):
         return self.time_embedding
 
     def initialize_state_embedding(self):
+        # if self.transformer_config.state_embedding_type.lower() == "cnn":
+        #     # This is a standard CNN for processing 64x64x3 images
+        #     state_embedding = nn.Sequential(
+        #         nn.Conv2d(3, 32, kernel_size=4, stride=2),
+        #         nn.ReLU(),
+        #         nn.Conv2d(32, 64, kernel_size=4, stride=2),
+        #         nn.ReLU(),
+        #         nn.Conv2d(64, 128, kernel_size=4, stride=2),
+        #         nn.ReLU(),
+        #         nn.Conv2d(128, 256, kernel_size=4, stride=2),
+        #         nn.ReLU(),
+        #         nn.Flatten(),
+        #         nn.Linear(256 * 2 * 2, self.transformer_config.d_model) # Project to d_model size
+        #     )
         if self.transformer_config.state_embedding_type.lower() == "cnn":
             state_embedding = MiniGridConvEmbedder(
                 self.transformer_config.d_model, endpool=True
@@ -333,8 +426,8 @@ class DecisionTransformer(TrajectoryTransformer):
         )
         self.reward_predictor = nn.Linear(self.transformer_config.d_model, 1)
         
-        # rssm_config = config['defaults']['agent']['dyn']['rssm']
-        # rssm_state_dim = rssm_config['deter'] + (rssm_config['stoch'] * rssm_config['classes'])
+        rssm_config = config['defaults']['agent']['dyn']['rssm']
+        rssm_state_dim = rssm_config['deter'] + (rssm_config['stoch'] * rssm_config['classes'])
 
         self.penultimate_layer = nn.Sequential(
             nn.Linear(128, penalty_dim // 2),
@@ -442,6 +535,7 @@ class DecisionTransformer(TrajectoryTransformer):
 
     def to_tokens(self, states, actions, rtgs, timesteps, mlp_learn):
         # embed states and recast back to (batch, block_size, n_embd)
+
         state_embeddings = self.get_state_embedding(
             states
         )  # batch_size, block_size, n_embd
@@ -618,11 +712,11 @@ class DecisionTransformer(TrajectoryTransformer):
 
         if mlp_learn:
             if mode == "state":
-                pooled = x[:, ::3, :].detach().clone().view(batch_size, -1)
+                pooled = x[:, ::3, :].mean(dim=1).detach().clone()
             elif mode == "rtg":
-                pooled = x[:, 2::3, :].detach().clone().view(batch_size, -1)
+                pooled = x[:, 2::3, :].mean(dim=1).detach().clone()
             elif mode == "action":
-                pooled = x[:, 1::3, :].detach().clone().view(batch_size, -1)
+                pooled = x[:, 1::3, :].mean(dim=1).detach().clone()
             else:
                 raise ValueError(f"Unsupported mode for MLP task classification: {mode}")
 

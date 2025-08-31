@@ -233,7 +233,7 @@ class Encoder(nj.Module):
         if self.outer and i == 0:
           x = self.sub(f'cnn{i}', nn.Conv2D, depth, K, **self.kw)(x)
         elif self.strided:
-          x = self.sub(f'cnn{i}', nn.Conv2D, depth, K, 2, **self.kw)(x)
+          x = self.sub(f'cnn{i}', nn.Conv2D, depth, K, 1, **self.kw)(x)
         else:
           x = self.sub(f'cnn{i}', nn.Conv2D, depth, K, **self.kw)(x)
           B, H, W, C = x.shape
@@ -306,7 +306,8 @@ class Decoder(nj.Module):
       recons.update(outs)
 
     if self.imgkeys:
-      factor = 2 ** (len(self.depths) - int(bool(self.outer)))
+      # factor = 2 ** (len(self.depths) - int(bool(self.outer)))
+      factor = 2
       minres = [int(x // factor) for x in self.imgres]
       assert 3 <= minres[0] <= 16, minres
       assert 3 <= minres[1] <= 16, minres
@@ -328,14 +329,14 @@ class Decoder(nj.Module):
       else:
         x = self.sub('space', nn.Linear, shape, **kw)(inp)
         x = nn.act(self.act)(self.sub('spacenorm', nn.Norm, self.norm)(x))
-      for i, depth in reversed(list(enumerate(self.depths[:-1]))):
-        if self.strided:
-          kw = dict(**self.kw, transp=True)
-          x = self.sub(f'conv{i}', nn.Conv2D, depth, K, 2, **kw)(x)
-        else:
-          x = x.repeat(2, -2).repeat(2, -3)
-          x = self.sub(f'conv{i}', nn.Conv2D, depth, K, **self.kw)(x)
-        x = nn.act(self.act)(self.sub(f'conv{i}norm', nn.Norm, self.norm)(x))
+      # for i, depth in reversed(list(enumerate(self.depths[:-1]))):
+      #   if self.strided:
+      #     kw = dict(**self.kw, transp=True)
+      #     x = self.sub(f'conv{i}', nn.Conv2D, depth, K, 2, **kw)(x)
+      #   else:
+      #     x = x.repeat(2, -2).repeat(2, -3)
+      #     x = self.sub(f'conv{i}', nn.Conv2D, depth, K, **self.kw)(x)
+      #   x = nn.act(self.act)(self.sub(f'conv{i}norm', nn.Norm, self.norm)(x))
       if self.outer:
         kw = dict(**self.kw, outscale=self.outscale)
         x = self.sub('imgout', nn.Conv2D, self.imgdep, K, **kw)(x)
@@ -346,6 +347,9 @@ class Decoder(nj.Module):
         x = x.repeat(2, -2).repeat(2, -3)
         kw = dict(**self.kw, outscale=self.outscale)
         x = self.sub('imgout', nn.Conv2D, self.imgdep, K, **kw)(x)
+      # ✅ 최종 크기를 원본 해상도(7, 7)로 강제 리사이즈하는 코드 추가
+      x = jax.image.resize(
+          x, (*x.shape[:-3], *self.imgres, x.shape[-1]), 'nearest')
       x = jax.nn.sigmoid(x)
       x = x.reshape((*bshape, *x.shape[1:]))
       split = np.cumsum(

@@ -167,5 +167,3 @@ def detect_task_shift(obs, prevact):
 #         self.recent_feats.clear()
 #         self.prev_task = None
 #         self.current_task = None
-
-

@@ -10,6 +10,7 @@ from typing import Optional
 from dataclasses import dataclass, field
 from typing import List
 import numpy as np
+import cv2
 
 import gymnasium as gym
 import torch
@@ -18,8 +19,12 @@ from minigrid.wrappers import (
     OneHotPartialObsWrapper,
     RGBImgPartialObsWrapper,
 )
-
+import sys
+import os
+sys.path.append('/home/hail/Project/dreamerv3') 
 from dreamerv3.Decision_Transformer.src.environments.wrappers import ViewSizeWrapper
+from gymnasium import spaces
+from gymnasium.wrappers import TransformObservation
 
 
 @dataclass
@@ -34,7 +39,7 @@ class EnvironmentConfig:
     fully_observed: bool = False
     max_steps: int = 1000
     seed: int = 1
-    view_size: int = 7
+    # view_size: int = 7
     capture_video: bool = False
     video_dir: str = "videos"
     video_frequency: int = 50
@@ -42,6 +47,7 @@ class EnvironmentConfig:
     action_space: None = None
     observation_space: None = None
     device: str = "cpu"
+    rgb_obs: bool = False
 
     def __post_init__(self):
         env = gym.make(self.env_id)
@@ -51,11 +57,23 @@ class EnvironmentConfig:
                 env = FullyObsWrapper(env)
             elif self.one_hot_obs:
                 env = OneHotPartialObsWrapper(env)
-            elif self.img_obs:
+            elif self.img_obs or self.rgb_obs:
+                print("Applying RGB, Filter, and Resize wrappers.")
+    
+                # 1. 먼저 RGB 이미지 래퍼를 적용 (출력: Dict)
                 env = RGBImgPartialObsWrapper(env)
+                new_observation_space = spaces.Box(
+                    low=0, high=255, shape=(64, 64, 3), dtype=np.uint8
+                )
+                env = TransformObservation(
+                    env,
+                    # 이 함수는 딕셔너리(obs)를 받아 'image' 키를 꺼내고 리사이즈합니다.
+                    lambda obs: cv2.resize(obs['image'], (64, 64), interpolation=cv2.INTER_AREA),
+                    observation_space=new_observation_space
+                )
 
-            if self.view_size != 7:
-                env = ViewSizeWrapper(env, self.view_size)
+            # if self.view_size != 7:
+            #     env = ViewSizeWrapper(env, self.view_size)
 
         self.action_space = self.action_space or env.action_space
         self.observation_space = (
@@ -75,11 +93,11 @@ class TransformerModelConfig:
     n_heads: int = 4
     d_mlp: int = 256
     n_layers: int = 2
-    n_ctx: int = 2
+    n_ctx: int = 62
     layer_norm: Optional[str] = None
     gated_mlp: bool = False
     # activation_fn: str = "relu"
-    state_embedding_type: str = "grid"
+    state_embedding_type: str = "cnn"
     time_embedding_type: str = "embedding"
     seed: int = 1
     device: str = "cpu"
@@ -131,7 +149,7 @@ class TransformerModelConfig:
         elif self.layer_norm.lower() == "none":
             self.layer_norm = None
 
-        assert self.state_embedding_type.lower() in ["grid", "cnn", "vit"]
+        assert self.state_embedding_type.lower() in [ "cnn", "vit","grid",]
 
         assert self.layer_norm is None or self.layer_norm in [
             "LNPre",
@@ -212,7 +230,7 @@ class OfflineTrainConfig:
     """
 
     trajectory_path: list[str] = field(default_factory=list)
-    batch_size: int = 128
+    batch_size: int = 64
     convert_to_one_hot: bool = False
     optimizer: str = "AdamW"
     scheduler: str = "ConstantWithWarmUp"

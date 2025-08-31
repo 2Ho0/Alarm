@@ -317,8 +317,6 @@ class Agent(embodied.Agent):
   def report(self, carry, data):
     seed = data.pop('seed')
     
-    print("report data keys: ", data.keys())
-    print("report spaces keys: ", self.spaces.keys())
     assert sorted(data.keys()) == sorted(self.spaces.keys()), (
         sorted(data.keys()), sorted(self.spaces.keys()))
     with self.train_lock:

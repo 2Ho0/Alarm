@@ -15,6 +15,31 @@ class TaskManager:
         **kwargs
     ):
         self.domain = domain
+        # Allow CLI to pass tasks as string like "[a,b]" or "a,b",
+        # or as a single-element list like ["[a,b]"]
+        if isinstance(tasks, str):
+            raw = tasks.strip()
+            # Remove any surrounding brackets
+            if raw.startswith('[') and raw.endswith(']'):
+                raw = raw[1:-1]
+            # Split on commas and cleanup quotes/brackets
+            parts = [p.strip() for p in raw.split(',')] if raw else []
+            tasks = [p.strip("'\"").strip('[]') for p in parts if p]
+        elif isinstance(tasks, list):
+            # Flatten lists that may come from CLI parsing like ["[a", "b", "c]"]
+            parsed: list[str] = []
+            for item in tasks:
+                if not isinstance(item, str):
+                    continue
+                s = item.strip()
+                # Remove stray brackets possibly attached to first/last elements
+                s = s.strip('[]')
+                # Split further on commas in case a single element encodes multiple tasks
+                for piece in s.split(','):
+                    piece = piece.strip().strip("'\"").strip('[]')
+                    if piece:
+                        parsed.append(piece)
+            tasks = parsed
         self.tasks = tasks
         self.strategy = strategy
         self.switch_interval = switch_interval

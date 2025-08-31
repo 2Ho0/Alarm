@@ -1,5 +1,10 @@
+import cv2
+import numpy as np
 import gymnasium as gym
+from gymnasium import spaces
 from minigrid.wrappers import FullyObsWrapper, OneHotPartialObsWrapper
+from minigrid.wrappers import RGBImgPartialObsWrapper
+from gymnasium.wrappers import TransformObservation
 
 from dreamerv3.Decision_Transformer.src.config import EnvironmentConfig
 
@@ -36,12 +41,29 @@ def make_env(config: EnvironmentConfig, seed: int, idx: int, run_name: str):
 
         # hard code for now!
         if config.env_id.startswith("MiniGrid"):
-            if config.fully_observed:
-                env = FullyObsWrapper(env)
-            if config.view_size != 7:
-                env = ViewSizeWrapper(env, agent_view_size=config.view_size)
-            if config.one_hot_obs:
+            
+            # if config.view_size != 7:
+            #     env = ViewSizeWrapper(env, agent_view_size=config.view_size)
+            if config.rgb_obs:
+                print("Applying RGB, Filter, and Resize wrappers.")
+    
+                # 1. 먼저 RGB 이미지 래퍼를 적용 (출력: Dict)
+                env = RGBImgPartialObsWrapper(env)
+                new_observation_space = spaces.Box(
+                    low=0, high=255, shape=(64, 64, 3), dtype=np.uint8
+                )
+                env = TransformObservation(
+                    env,
+                    # 이 함수는 딕셔너리(obs)를 받아 'image' 키를 꺼내고 리사이즈합니다.
+                    lambda obs: cv2.resize(obs['image'], (64, 64), interpolation=cv2.INTER_AREA),
+                    observation_space=new_observation_space
+                )
+
+            
+            elif config.one_hot_obs:
                 env = OneHotPartialObsWrapper(env)
+            elif config.fully_observed:
+                env = FullyObsWrapper(env)
 
         env.action_space.seed(seed)
         env.observation_space.seed(seed)

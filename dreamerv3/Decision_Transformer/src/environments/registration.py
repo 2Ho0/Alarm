@@ -2,7 +2,12 @@ from gymnasium import register
 from minigrid.core.world_object import Lava, Wall
 from minigrid.envs import CrossingEnv, DynamicObstaclesEnv, MultiRoomEnv
 
-from src.ppo.my_probe_envs import (
+
+import sys
+import os
+sys.path.append('/home/hail/Project/dreamerv3') 
+
+from dreamerv3.Decision_Transformer.src.ppo.my_probe_envs import (
     Probe1,
     Probe2,
     Probe3,
@@ -11,8 +16,8 @@ from src.ppo.my_probe_envs import (
     Probe6,
 )
 
-from .memory import MemoryEnv
-from .multienvironments import MultiEnvSampler
+from dreamerv3.Decision_Transformer.src.environments.memory import MemoryEnv
+from dreamerv3.Decision_Transformer.src.environments.multienvironments import MultiEnvSampler
 
 
 def get_dynamic_obstacles_multi_env(render_mode="rgb_array", max_steps=1000):

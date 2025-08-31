@@ -14,6 +14,7 @@ import embodied
 import numpy as np
 import portal
 import ruamel.yaml as yaml
+from gymnasium.spaces import Box
 
 
 def main(argv=None):
@@ -87,11 +88,18 @@ def main(argv=None):
         curriculum_order=config.task_manager.get('curriculum_order', [])
     )
     print(f"TaskManager initialized: {task_manager.get_stats()}")
+    # Ensure a consistent base task so agent/env agree even if task_manager
+    # is not threaded everywhere.
+    initial_task = task_manager.get_current_task()
+    if str(task_manager.domain).lower().startswith('minigrid'):
+      config = config.update(task=f'minigrid_MiniGrid-{initial_task}')
+    else:
+      config = config.update(task=f'dmc_{task_manager.domain}_{initial_task}')
 
 # 각 모드에 따라 함수 실행 code (bind 함수는 함수와 인자를 인자로 받아 해당 함수에 입력 인자를 인자로 하여 실행하는 새로운 함수를 반환하는 함수)
   if config.script == 'train':
     embodied.run.train(
-        bind(make_agent, config),
+        bind(make_agent, config, task_manager=task_manager),
         bind(make_replay, config, 'replay'),
         bind(make_env, config, task_manager=task_manager),
         bind(make_stream, config),
@@ -100,7 +108,7 @@ def main(argv=None):
 
   elif config.script == 'train_eval':
     embodied.run.train_eval(
-        bind(make_agent, config),
+        bind(make_agent, config, task_manager=task_manager),
         bind(make_replay, config, 'replay'),
         bind(make_replay, config, 'eval_replay', 'eval'),
         bind(make_env, config, task_manager=task_manager),
@@ -111,14 +119,14 @@ def main(argv=None):
 
   elif config.script == 'eval_only':
     embodied.run.eval_only(
-        bind(make_agent, config),
+        bind(make_agent, config, task_manager=task_manager),
         bind(make_env, config, task_manager=task_manager),
         bind(make_logger, config),
         args)
 
   elif config.script == 'parallel':
     embodied.run.parallel.combined(
-        bind(make_agent, config),
+        bind(make_agent, config, task_manager=task_manager),
         bind(make_replay, config, 'replay'),
         bind(make_replay, config, 'replay_eval', 'eval'),
         bind(make_env, config, task_manager=task_manager),
@@ -148,9 +156,9 @@ def main(argv=None):
     raise NotImplementedError(config.script)
 
 
-def make_agent(config):
+def make_agent(config, task_manager=None):
   from .agent import Agent
-  env = make_env(config, 0)
+  env = make_env(config, 0, task_manager=task_manager)
   notlog = lambda k: not k.startswith('log/')
   obs_space = {k: v for k, v in env.obs_space.items() if notlog(k)}
   act_space = {k: v for k, v in env.act_space.items() if k != 'reset'}
@@ -205,7 +213,31 @@ def make_logger(config):
 
 
 def make_replay(config, folder, mode='train'):
-  batlen = config.batch_length if mode == 'train' else config.report_length
+  if mode == 'decision_transformer':
+        # DT는 최신 데이터만 필요하므로 작고 빠른 온라인 버퍼를 사용합니다.
+        # batch_length 만큼의 trajectory를 몇 개만 저장할 수 있는 작은 크기면 충분합니다.
+        # 예: 최근 5개의 배치 시퀀스를 저장할 용량
+        dt_length = 20 # DT가 분석할 시퀀스 길이, n_ctx // 3
+        dt_batch_size = 32
+        dt_capacity = dt_batch_size * dt_length * 5 
+        
+        
+        directory = elements.Path(config.logdir) / folder
+        if config.replicas > 1:
+            directory /= f'{config.replica:05}'
+
+        # selector를 직접 생성하여 sampler로 설정
+        latest_selector = embodied.replay.selectors.Latest()
+        return embodied.replay.Replay(
+            length=dt_length,
+            capacity=int(dt_capacity),
+            online=True,
+            chunksize=1024,
+            directory=directory,
+            selector=latest_selector
+        )
+  
+  batlen = config.batch_length if mode == 'train'  else config.report_length
   consec = config.consec_train if mode == 'train' else config.consec_report
   capacity = config.replay.size if mode == 'train' else config.replay.size / 10
   length = consec * batlen + config.replay_context
@@ -217,7 +249,7 @@ def make_replay(config, folder, mode='train'):
   kwargs = dict(
       length=length, capacity=int(capacity), online=config.replay.online,
       chunksize=config.replay.chunksize, directory=directory)
-
+  
   if config.replay.fracs.uniform < 1 and mode == 'train':
     assert config.jax.compute_dtype in ('bfloat16', 'float32'), (
         'Gradient scaling for low-precision training can produce invalid loss '
@@ -239,9 +271,16 @@ def make_env(config, index, **overrides):
   
   if task_manager is not None:
     # TaskManager가 있으면 현재 태스크 동적 선택
-    current_task_name = task_manager.get_current_task_name()
-    suite = 'dmc'  # DMC 환경을 사용
-    task = current_task_name  # cartpole_swingup 형태
+    current_task = task_manager.get_current_task()
+    domain = task_manager.domain
+    if str(domain).lower().startswith('minigrid'):
+      # MiniGrid: "MiniGrid-<Task>" 형태로 구성
+      suite = 'minigrid'
+      task = f'MiniGrid-{current_task}'
+    else:
+      # 기본: DMC(MuJoCo): "<domain>_<task>" 형태
+      suite = 'dmc'
+      task = f'{domain}_{current_task}'
   else:
     # 기존 방식: 고정된 태스크 사용
     task = config.task
@@ -303,6 +342,7 @@ def wrap_env(env, config):
   for name, space in env.act_space.items():
     if not space.discrete:
       env = embodied.wrappers.ClipAction(env, name)
+  env = embodied.wrappers.ResizeImage(env, size=(7, 7))
   return env
 
 

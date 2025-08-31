@@ -138,7 +138,6 @@ class Agent(embodied.jax.Agent):
 
 
   def train(self, carry, data):
-    print("train start")
     carry, obs, prevact, stepid, task_shift_result = self._apply_replay_context(carry, data)
 
     metrics, (carry, entries, outs, mets) = self.opt(
@@ -159,7 +158,7 @@ class Agent(embodied.jax.Agent):
     return carry, outs, metrics
 
   def loss(self, carry, obs, prevact, training, task_shift_result):
-    print("task_shift_result: ", task_shift_result)
+    # jax.debug.print("task_shift_result: {}", task_shift_result)
     enc_carry, dyn_carry, dec_carry = carry
     reset = obs['is_first']
     B, T = reset.shape
@@ -190,9 +189,6 @@ class Agent(embodied.jax.Agent):
     B, T = reset.shape
     shapes = {k: v.shape for k, v in losses.items()}
     assert all(x == (B, T) for x in shapes.values()), ((B, T), shapes)
-
-    if task_shift_result is True:
-      print("Task shift detected")
 
     # Imagination
     K = min(self.config.imag_last or T, T)

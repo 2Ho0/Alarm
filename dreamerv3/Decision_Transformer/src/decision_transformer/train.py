@@ -22,6 +22,44 @@ from .eval import evaluate_dt_agent
 from .utils import configure_optimizers, get_scheduler
 from torch.utils.data import ConcatDataset
 
+# 이 함수는 dt_train.py 또는 utils.py 같은 파일에 추가하면 좋습니다.
+
+def dt_inference(model, trajectory_data_set, pre_task, num_actions, device="cpu"):
+    """학습된 DT 모델로 태스크 전환 여부만 추론하는 함수"""
+    model.eval()
+    model.to(device)
+    
+    # 데이터셋은 배치가 하나라고 가정
+    s, a, _, _, rtg, ti, _, _, _ = next(iter(trajectory_data_set))
+    s, a, rtg, ti = s.to(device), a.to(device), rtg.to(device), ti.to(device)
+    a[a == -10] = num_actions
+    a = a.to(device)
+    # 옵티마이저, 손실 계산, 역전파가 전혀 필요 없음
+    with t.no_grad():
+        # mlp_learn=True로 task_preds를 바로 얻음
+        _, _, _, task_preds, _ = model(
+            states=s,
+            actions=a,
+            rtgs=rtg,
+            timesteps=ti.unsqueeze(-1),
+            mlp_learn=True,
+        )
+
+        # 태스크 전환 감지 로직
+        recent_k = s.shape[0] // 2
+        recent_task_preds = task_preds[-recent_k:]
+        task_probs = t.softmax(recent_task_preds, dim=-1)
+        mean_task_probs = task_probs.mean(dim=0)
+        _, current_task_tensor = t.max(mean_task_probs, dim=-1)
+        current_task = current_task_tensor.item()
+
+        task_shift_detected = False
+        if pre_task != current_task:
+            task_shift_detected = True
+
+    # 현재 태스크와 전환 여부를 함께 반환하여 다음 스텝에서 pre_task를 업데이트
+    return task_shift_detected, current_task
+
 def dt_train(
     model: TrajectoryTransformer,
     trajectory_data_set: TrajectoryDataset,
@@ -68,7 +106,7 @@ def dt_train(
             optimizer.zero_grad()
 
             # action = a[:, :-1].unsqueeze(-1) if a.shape[1] > 1 else None
-            action = a[:-1] if a.shape[0] > 1 else None # a shape = (65,1)
+            action = a[:] if a.shape[0] > 1 else None # a shape = (65,1)
             state_preds, action_preds, reward_preds= model(
                 states=s,
                 # remove last action
@@ -81,7 +119,7 @@ def dt_train(
             if mode == 'state':                
                 state_preds = rearrange(state_preds, "b t s -> (b t) s") # state_preds (64, 12288)
                 
-                s_target = s[1:]  # s[1:] removes the first state
+                s_target = s[:]  # s[1:] removes the first state
                 s_exp = rearrange(s_target, "b t w c -> b (t w c)") # s_exp (65, 12288)
 
                 # 이제 두 텐서의 모양이 동일하므로 손실 계산이 가능합니다.
@@ -137,7 +175,7 @@ def dt_train(
                 ti = ti.to(t.float32)
 
             a[a == -10] = num_actions
-            action = a[:, :-1].unsqueeze(-1) if a.shape[1] > 1 else None
+            action = a[:] if a.shape[0] > 1 else None
 
             state_preds, action_preds, reward_preds, task_preds, _ = model(
                 states=s,

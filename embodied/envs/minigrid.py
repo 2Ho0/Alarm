@@ -1,4 +1,3 @@
-
 from typing import cast
 import gymnasium
 from minigrid.wrappers import FullyObsWrapper, ObservationWrapper

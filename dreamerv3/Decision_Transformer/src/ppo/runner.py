@@ -89,19 +89,6 @@ def ppo_runner(
             for i in range(online_config.num_envs)
         ]
     )
-    # envs = AsyncVectorEnv(
-    #     [
-    #         make_env(
-    #             config=environment_config,
-    #             seed=environment_config.seed + i,
-    #             idx=i,
-    #             run_name=run_name,
-    #         )
-    #         for i in range(online_config.num_envs)
-    #     ],
-    #     shared_memory=False
-    # )
-
 
     agent = train_random(
         run_config=run_config,

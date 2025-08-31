@@ -4,6 +4,43 @@ import threading
 import numpy as np
 
 
+class Latest:
+    """
+    Selects the most recently added items from the replay buffer.
+    """
+    def __init__(self, seed=0, **kwargs):
+        self.keys = []
+        self.lock = threading.Lock()
+
+    def __len__(self):
+        return len(self.keys)
+
+    def __call__(self, n_items):
+        """
+        Returns the keys for the n_items most recent transitions.
+        """
+        with self.lock:
+            if len(self.keys) < n_items:
+                raise ValueError("Not enough items in the buffer to sample the latest.")
+            
+            # Returns the last n_items keys, which are the most recent.
+            return self.keys[-n_items:]
+
+    def __setitem__(self, key, stepids):
+        """
+        Adds a new key to the list of keys.
+        """
+        with self.lock:
+            self.keys.append(key)
+
+    def __delitem__(self, key):
+        """
+        Removes a key from the list. This is a slow operation.
+        """
+        with self.lock:
+            if key in self.keys:
+                self.keys.remove(key)
+
 class Fifo:
 
   def __init__(self):
