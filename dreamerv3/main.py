@@ -342,7 +342,6 @@ def wrap_env(env, config):
   for name, space in env.act_space.items():
     if not space.discrete:
       env = embodied.wrappers.ClipAction(env, name)
-  env = embodied.wrappers.ResizeImage(env, size=(7, 7))
   return env
 
 

@@ -309,6 +309,7 @@ class Decoder(nj.Module):
       # factor = 2 ** (len(self.depths) - int(bool(self.outer)))
       factor = 2
       minres = [int(x // factor) for x in self.imgres]
+      
       assert 3 <= minres[0] <= 16, minres
       assert 3 <= minres[1] <= 16, minres
       shape = (*minres, self.depths[-1])
@@ -342,14 +343,12 @@ class Decoder(nj.Module):
         x = self.sub('imgout', nn.Conv2D, self.imgdep, K, **kw)(x)
       elif self.strided:
         kw = dict(**self.kw, outscale=self.outscale, transp=True)
-        x = self.sub('imgout', nn.Conv2D, self.imgdep, K, 2, **kw)(x)
+        x = self.sub('imgout', nn.Conv2D, self.imgdep, K, 1, **kw)(x)
       else:
         x = x.repeat(2, -2).repeat(2, -3)
         kw = dict(**self.kw, outscale=self.outscale)
         x = self.sub('imgout', nn.Conv2D, self.imgdep, K, **kw)(x)
-      # ✅ 최종 크기를 원본 해상도(7, 7)로 강제 리사이즈하는 코드 추가
-      x = jax.image.resize(
-          x, (*x.shape[:-3], *self.imgres, x.shape[-1]), 'nearest')
+      
       x = jax.nn.sigmoid(x)
       x = x.reshape((*bshape, *x.shape[1:]))
       split = np.cumsum(

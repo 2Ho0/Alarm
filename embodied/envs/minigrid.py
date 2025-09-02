@@ -25,7 +25,7 @@ class Minigrid(FromGymnasium):
             env = FullyObsWrapper(env)
         if hide_mission:
             env = HideMission(env)
-        env = ResizeIntObservation(env, size=(64, 64))
+        env = ResizeIntObservation(env, size=(8, 8))
         super().__init__(env=env)
 
 class ResizeIntObservation(ObservationWrapper):

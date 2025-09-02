@@ -158,7 +158,6 @@ class Agent(embodied.jax.Agent):
     return carry, outs, metrics
 
   def loss(self, carry, obs, prevact, training, task_shift_result):
-    # jax.debug.print("task_shift_result: {}", task_shift_result)
     enc_carry, dyn_carry, dec_carry = carry
     reset = obs['is_first']
     B, T = reset.shape
@@ -190,9 +189,19 @@ class Agent(embodied.jax.Agent):
     shapes = {k: v.shape for k, v in losses.items()}
     assert all(x == (B, T) for x in shapes.values()), ((B, T), shapes)
 
+    
+
     # Imagination
     K = min(self.config.imag_last or T, T)
     H = self.config.imag_length
+    # true_count  = jnp.sum(task_shift_result)  
+    # false_count = task_shift_result.size - true_count
+    
+    # H = jnp.where(
+    #     true_count > false_count,
+    #     self.config.imag_length // 2,
+    #     self.config.imag_length
+    # )
     starts = self.dyn.starts(dyn_entries, dyn_carry, K)
     policyfn = lambda feat: sample(self.pol(self.feat2tensor(feat), 1))
     _, imgfeat, imgprevact = self.dyn.imagine(starts, policyfn, H, training)
