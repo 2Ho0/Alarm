@@ -29,7 +29,6 @@ def dt_inference(model, trajectory_data_set, pre_task, num_actions, device="cpu"
     model.eval()
     model.to(device)
     
-    # 데이터셋은 배치가 하나라고 가정
     s, a, _, _, rtg, ti, _, _, _ = next(iter(trajectory_data_set))
     s, a, rtg, ti = s.to(device), a.to(device), rtg.to(device), ti.to(device)
     a[a == -10] = num_actions

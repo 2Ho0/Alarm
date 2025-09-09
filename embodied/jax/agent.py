@@ -268,6 +268,29 @@ class Agent(embodied.Agent):
         sorted(data.keys()), sorted(self.spaces.keys()))
     allo = {k: v for k, v in self.params.items() if k in self.policy_keys}
     dona = {k: v for k, v in self.params.items() if k not in self.policy_keys}
+    # numpy → jax.Array 강제 및 dtype 보존
+    to_jax = lambda x: jnp.asarray(x) if isinstance(x, np.ndarray) else x
+    data  = jax.tree.map(to_jax, data)
+    carry = jax.tree.map(to_jax, carry)
+    seed  = jnp.asarray(seed, jnp.uint32)  # 시드가 파이썬 int/np.int이면 jax로
+
+    # 기대 sharding으로 디바이스에 올리기 (프로젝트 util)
+    try:
+      dona  = internal.move(dona,  self.train_params_sharding)
+      # allo는 아래 pending_sync에서 처리가 되지만, _train 입력에도 쓰이면 미리 옮겨둡니다.
+      allo  = internal.move(allo,  self.policy_params_sharding)
+      data  = internal.move(data,  self.train_inputs_sharding)
+      carry = internal.move(carry, self.train_carry_sharding)
+      # 별도 시드 sharding이 있다면:
+      if hasattr(self, 'train_seed_sharding'):
+        seed = internal.move(seed, self.train_seed_sharding)
+    except Exception:
+      # 단일 디바이스/샤딩 설정 없을 때의 안전장치
+      dona  = jax.device_put(dona)
+      allo  = jax.device_put(allo)
+      data  = jax.device_put(data)
+      carry = jax.device_put(carry)
+      seed  = jax.device_put(seed)
     with self.train_lock:
       with elements.timer.section('jit_train'):
         with jax.profiler.StepTraceAnnotation(

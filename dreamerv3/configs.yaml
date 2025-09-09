@@ -238,6 +238,16 @@ debug:
     .*\.depth: 2
 
 # Continual Learning Examples
+continual_minigrid:
+  task_manager:
+    enabled: True
+    domain: 'minigrid'
+    tasks: [ 'DoorKey-8x8', 'LavaCrossingS9N1', 'SimpleCrossingS9N1']
+    strategy: 'sequential'
+    switch_interval: 500
+    random_seed: 42
+  run: {steps: 6e6, envs: 4}
+
 continual_cartpole:
   task_manager:
     enabled: True

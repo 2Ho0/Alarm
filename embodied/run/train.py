@@ -1,4 +1,5 @@
 import collections
+import functools
 from functools import partial as bind
 
 import elements
@@ -6,18 +7,14 @@ import embodied
 import numpy as np
 import torch as t
 
-try:
-  from dreamerv3.Decision_Transformer.src.decision_transformer.train import dt_train, dt_inference
-  from dreamerv3.Decision_Transformer.src.models.trajectory_transformer import (DecisionTransformer)
-  from dreamerv3.Decision_Transformer.src.config import( EnvironmentConfig, OfflineTrainConfig, TransformerModelConfig)
-  from dreamerv3.Decision_Transformer.src.environments.environments import make_env as dt_make_env
-  from dreamerv3.Decision_Transformer.src.decision_transformer.offline_dataset import TrajectoryDataset
-  from dreamerv3.Decision_Transformer.src.decision_transformer.utils import get_max_len_from_model_type
-  DT_AVAILABLE = True
-except Exception:
-  DT_AVAILABLE = False
+from dreamerv3.Decision_Transformer.src.decision_transformer.train import dt_inference
+from dreamerv3.Decision_Transformer.src.models.trajectory_transformer import (DecisionTransformer)
+from dreamerv3.Decision_Transformer.src.config import( EnvironmentConfig, TransformerModelConfig)
+from dreamerv3.Decision_Transformer.src.decision_transformer.offline_dataset import TrajectoryDataset
+
+
 import jax
-from gymnasium.spaces import Box
+from gymnasium.spaces import Box, Discrete
 
 # JAX의 JIT 환경 밖에서 사용할 NumPy 버전의 returns_to_go 계산 함수
 def _calculate_returns_np(rewards):
@@ -32,12 +29,14 @@ def _calculate_returns_np(rewards):
     return returns
 
 def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
-
+  task_manager = None
+  if isinstance(make_env, functools.partial) and 'task_manager' in make_env.keywords:
+      task_manager = make_env.keywords['task_manager']
   agent = make_agent()
   replay = make_replay()
   logger = make_logger()
 
-  dt_replay = make_replay(mode = 'decision_transformer') if DT_AVAILABLE else None
+  dt_replay = make_replay(mode = 'decision_transformer')
 
   logdir = elements.Path(args.logdir)
   step = logger.step
@@ -55,38 +54,30 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
   should_save = embodied.LocalClock(args.save_every)
   dt_pre_task = 0
 
-  if DT_AVAILABLE:
-    # Decision Transformer 모델 및 관련 설정 초기화 (학습 루프 시작 전 1회 실행)
-    dt_env_config = EnvironmentConfig()
-    dt_model_config = TransformerModelConfig()
-    dt_offline_config = OfflineTrainConfig()
-    # DT용 환경은 DT 모델 내부의 observation/action space 정보를 설정하기 위해 한 번만 생성합니다.
-    dt_env = make_env(0)
-    act_space = dt_env.act_space
+  # Decision Transformer 모델 및 관련 설정 초기화 (학습 루프 시작 전 1회 실행)
+  dt_env_config = EnvironmentConfig()
+  dt_model_config = TransformerModelConfig()
+
+  # DT용 환경은 DT 모델 내부의 observation/action space 정보를 설정하기 위해 한 번만 생성합니다.
+  dt_env = make_env(0)
+  act_space = dt_env.act_space
+  
+  # embodied의 딕셔너리 형태에서 실제 Space 객체를 추출합니다.
+  main_action_space = act_space['action']
+  num_actions = int(main_action_space.high) # .high가 행동의 개수를 나타냅니다.
+  dt_env_config.action_space = Discrete(num_actions)
+  mock_obs_space = Box(low=0, high=255, shape=(7, 7, 3), dtype=np.uint8)
+  dt_env_config.observation_space = mock_obs_space
+  
+  dt_model = DecisionTransformer(
+      environment_config=dt_env_config,
+      transformer_config=dt_model_config,
+  )
+  model_path = '/home/hail/Project/dreamerv3/dreamerv3/Decision_Transformer/models/9101.pt'
+  checkpoint = t.load(model_path)
+  dt_model.load_state_dict(checkpoint['model_state_dict'])
     
-    # 가져온 정보로 DT 설정을 구성합니다.
-    class MockDiscreteSpace:
-      def __init__(self, n):
-        self.n = n
-    
-    # embodied의 딕셔너리 형태에서 실제 Space 객체를 추출합니다.
-    main_action_space = act_space['action']
-    num_actions = int(main_action_space.high) # .high가 행동의 개수를 나타냅니다.
-    dt_env_config.action_space = MockDiscreteSpace(num_actions)
-    mock_obs_space = Box(low=0, high=255, shape=(7, 7, 3), dtype=np.uint8)
-    dt_env_config.observation_space = mock_obs_space
-    
-    dt_model = DecisionTransformer(
-        environment_config=dt_env_config,
-        transformer_config=dt_model_config,
-    )
-    model_path = '/home/hail/Project/dreamerv3/dreamerv3/Decision_Transformer/models/9101.pt'
-    checkpoint = t.load(model_path)
-    dt_model.load_state_dict(checkpoint['model_state_dict'])
-    
-    print("Decision Transformer initialized successfully.")
-  else:
-    print("Decision Transformer not available. Skipping DT-based task shift detection.")
+  
 
   @elements.timer.section('logfn')
   def logfn(tran, worker):
@@ -115,11 +106,31 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
         result['reward_rate'] = (np.abs(rew[1:] - rew[:-1]) >= 0.01).mean()
       epstats.add(result)
 
+      if task_manager:
+        # 1. TaskManager에 에피소드 종료를 알립니다.
+        task_manager.on_episode_end(
+            episode_reward=result.get('score', 0),
+            episode_length=result.get('length', 0)
+        )
+        # 2. 태스크를 전환해야 하는지 확인합니다.
+        if task_manager.should_switch_task():
+          old_task = task_manager.get_current_task_name()
+          task_manager.switch_task()
+          new_task = task_manager.get_current_task_name()
+          print(f"🔄 Task 전환: {old_task} -> {new_task}. 환경을 리셋합니다.")
+          
+          # 3. 모든 환경을 리셋하여 새로운 태스크를 적용합니다.
+          driver.reset(agent.init_policy)
+          
+          # 4. 새로운 태스크에 대한 통계를 새로 기록하기 위해 초기화합니다.
+          episodes.clear()
+          epstats.reset()
+
   fns = [bind(make_env, i) for i in range(args.envs)]
   driver = embodied.Driver(fns, parallel=not args.debug)
   driver.on_step(lambda tran, _: step.increment())
   driver.on_step(lambda tran, _: policy_fps.step())
-  if DT_AVAILABLE and dt_replay is not None:
+  if dt_replay is not None:
     driver.on_step(dt_replay.add)
   driver.on_step(replay.add)
   driver.on_step(logfn)
@@ -138,7 +149,7 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
       with elements.timer.section('stream_next'):
         batch = next(stream_train)
 
-      if DT_AVAILABLE and dt_replay is not None:
+      if dt_replay is not None:
         # Decision Transformer로 Task Shift 감지 (NumPy/PyTorch 영역)
         with elements.timer.section('dt_task_shift'):
           dt_batch = dt_replay.sample(args.batch_size)
@@ -165,12 +176,6 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
             )
           dt_pre_task = new_task
           
-          # task_shift = dt_train(
-          #     model=dt_model,
-          #     trajectory_data_set=dt_dataset,
-          #     num_actions=num_actions,
-          #     offline_config=dt_offline_config
-          # )
           _, T_train = batch['is_first'].shape
           target_shape = (B, T_train, T_train)
           task_shift_batched = np.full(target_shape, task_shift, dtype=bool)
@@ -180,6 +185,8 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
         task_shift_batched = np.full((B, T_train, T_train), False, dtype=bool)
 
       batch['task_shift_result'] = task_shift_batched
+      print("Task Shift Detected:", task_shift, "Current Task:", new_task)
+      
       carry_train[0], outs, mets = agent.train(carry_train[0], batch)
 
       train_fps.step(batch_steps)
@@ -209,7 +216,7 @@ def train(make_agent, make_replay, make_env, make_stream, make_logger, args):
       for _ in range(args.consec_report * args.report_batches):
         batch_report = next(stream_report)
       
-        target_shape = (16, 33, 65)
+        target_shape = (16, 65, 65)
         task_shift_batched = np.full(target_shape, False, dtype=bool)
         batch_report['task_shift_result'] = task_shift_batched
 
