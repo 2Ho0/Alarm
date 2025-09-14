@@ -36,28 +36,28 @@ def dt_inference(model, trajectory_data_set, pre_task, num_actions, device="cpu"
     # 옵티마이저, 손실 계산, 역전파가 전혀 필요 없음
     with t.no_grad():
         # mlp_learn=True로 task_preds를 바로 얻음
-        _, _, _, task_preds, _ = model(
-            states=s,
-            actions=a,
-            rtgs=rtg,
-            timesteps=ti.unsqueeze(-1),
+        _, _, _, task_preds, _ = model(             # task_preds(1,20,3)
+            states=s,                            # s.shape (20, 8, 8, 3)
+            actions=a,                          # a.shape(20,1)
+            rtgs=rtg,                       # rtg.shape(20,1)   
+            timesteps=ti.unsqueeze(-1), 
             mlp_learn=True,
         )
 
         # 태스크 전환 감지 로직
-        recent_k = s.shape[0] // 2
-        recent_task_preds = task_preds[-recent_k:]
-        task_probs = t.softmax(recent_task_preds, dim=-1)
-        mean_task_probs = task_probs.mean(dim=0)
-        _, current_task_tensor = t.max(mean_task_probs, dim=-1)
-        current_task = current_task_tensor.item()
+        # recent_k = s.shape[0] // 2
+        # recent_task_preds = task_preds[-recent_k:]
+        task_probs = t.softmax(task_preds, dim=-1)
+        # mean_task_probs = task_probs.mean(dim=0)
+        _, current_task_tensor = t.max(task_probs, dim=-1)
+        current_task_tensor = current_task_tensor.mode().values.item()
 
         task_shift_detected = False
-        if pre_task != current_task:
+        if pre_task != current_task_tensor:
             task_shift_detected = True
 
     # 현재 태스크와 전환 여부를 함께 반환하여 다음 스텝에서 pre_task를 업데이트
-    return task_shift_detected, current_task
+    return task_shift_detected, current_task_tensor
 
 def dt_train(
     model: TrajectoryTransformer,

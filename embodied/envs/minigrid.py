@@ -6,21 +6,41 @@ from gymnasium import spaces
 import numpy as np
 from PIL import Image
 
+from typing import cast
+import gymnasium
+from gymnasium.core import ObservationWrapper
+from gymnasium import spaces
+
 class HideMission(ObservationWrapper):
     """Remove the 'mission' string from the observation."""
     def __init__(self, env):
         super().__init__(env)
-        obs_space = cast(gymnasium.spaces.Dict, self.observation_space)
-        obs_space.spaces.pop('mission')
+        old = cast(gymnasium.spaces.Dict, self.observation_space)
+        # 새 Dict로 재할당 (in-place pop 금지)
+        new_spaces = {k: v for k, v in old.spaces.items() if k != 'mission'}
+        self.observation_space = spaces.Dict(new_spaces)
 
     def observation(self, observation: dict):
-        observation.pop('mission', None)
+        # obs에서도 실제 키 제거
+        if 'mission' in observation:
+            observation = dict(observation)
+            observation.pop('mission', None)
         return observation
+
+# class HideMission(ObservationWrapper):
+#     """Remove the 'mission' string from the observation."""
+#     def __init__(self, env):
+#         super().__init__(env)
+#         obs_space = cast(gymnasium.spaces.Dict, self.observation_space)
+#         obs_space.spaces.pop('mission', None)
+
+#     def observation(self, observation: dict):
+#         observation.pop('mission', None)
+#         return observation
 
 class Minigrid(FromGymnasium):
     def __init__(self, task: str, fully_observable: bool, hide_mission: bool):
         env = gymnasium.make(f"{task}-v0", render_mode="rgb_array")
-
         if fully_observable:
             env = FullyObsWrapper(env)
         if hide_mission:

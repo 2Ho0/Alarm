@@ -211,7 +211,7 @@ class Encoder(nj.Module):
     bdims = 1 if single else 2
     outs = []
     bshape = reset.shape
-
+    # MLP 사용하는 경우
     if self.veckeys:
       vspace = {k: self.obs_space[k] for k in self.veckeys}
       vecs = {k: obs[k] for k in self.veckeys}
@@ -222,7 +222,7 @@ class Encoder(nj.Module):
         x = self.sub(f'mlp{i}', nn.Linear, self.units, **self.kw)(x)
         x = nn.act(self.act)(self.sub(f'mlp{i}norm', nn.Norm, self.norm)(x))
       outs.append(x)
-
+    # CNN 사용하는 경우
     if self.imgkeys:
       K = self.kernel
       imgs = [obs[k] for k in sorted(self.imgkeys)]

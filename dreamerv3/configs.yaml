@@ -244,9 +244,9 @@ continual_minigrid:
     domain: 'minigrid'
     tasks: [ 'DoorKey-8x8', 'LavaCrossingS9N1', 'SimpleCrossingS9N1']
     strategy: 'sequential'
-    switch_interval: 500
+    switch_interval: 100
     random_seed: 42
-  run: {steps: 6e6, envs: 4}
+  run: {steps: 1e6, envs: 4}
 
 continual_cartpole:
   task_manager:

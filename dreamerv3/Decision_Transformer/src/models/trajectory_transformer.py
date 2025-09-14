@@ -712,11 +712,11 @@ class DecisionTransformer(TrajectoryTransformer):
 
         if mlp_learn:
             if mode == "state":
-                pooled = x[:, ::3, :].mean(dim=1).detach().clone()
+                pooled = x[:, ::3, :].detach().clone()
             elif mode == "rtg":
-                pooled = x[:, 2::3, :].mean(dim=1).detach().clone()
+                pooled = x[:, 2::3, :].detach().clone().view(batch_size, -1)
             elif mode == "action":
-                pooled = x[:, 1::3, :].mean(dim=1).detach().clone()
+                pooled = x[:, 1::3, :].detach().clone().view(batch_size, -1)
             else:
                 raise ValueError(f"Unsupported mode for MLP task classification: {mode}")
 

@@ -157,18 +157,6 @@ class Agent(embodied.jax.Agent):
     carry = (*carry, {k: data[k][:, -1] for k in self.act_space})
     return carry, outs, metrics
   
-  # def _shorter_imagine(self, operands):
-  #   s, t = operands
-  #   H_short = self.config.imag_length // 2
-  #   policyfn = lambda feat: sample(self.pol(self.feat2tensor(feat), 1))
-  #   return self.dyn.imagine(s, policyfn, H_short, t)
-
-  # def _longer_imagine(self, operands):
-  #     s, t = operands
-  #     H_long = self.config.imag_length
-  #     policyfn = lambda feat: sample(self.pol(self.feat2tensor(feat), 1))
-  #     return self.dyn.imagine(s, policyfn, H_long, t)
-  
   def loss(self, carry, obs, prevact, training, task_shift_result):
     enc_carry, dyn_carry, dec_carry = carry
     reset = obs['is_first']
@@ -203,56 +191,24 @@ class Agent(embodied.jax.Agent):
 
     # Imagination
     K = min(self.config.imag_last or T, T)
-    # H = self.config.imag_length
+    H = self.config.imag_length
+    
     starts = self.dyn.starts(dyn_entries, dyn_carry, K)
-
-    # 파라미터 워밍업: cond/select 이전에 반드시 한 번 호출해 파라미터 생성
-    _ = self.pol(self.feat2tensor(repfeat), 2)
-
     policyfn = lambda feat: sample(self.pol(self.feat2tensor(feat), 1))
-
-    H_full = int(self.config.imag_length)   # 정적 int
-    _, imgfeat, imgprevact = self.dyn.imagine(starts, policyfn, H_full, training)
-
-    # 첫 실제 상태 한 칸 붙이기(기존 로직 유지)
+    _, imgfeat, imgprevact = self.dyn.imagine(starts, policyfn, H, training)
     first = jax.tree.map(
         lambda x: x[:, -K:].reshape((B * K, 1, *x.shape[2:])), repfeat)
     imgfeat = concat([sg(first, skip=self.config.ac_grads), sg(imgfeat)], 1)
     lastact = policyfn(jax.tree.map(lambda x: x[:, -1], imgfeat))
     lastact = jax.tree.map(lambda x: x[:, None], lastact)
     imgact = concat([imgprevact, lastact], 1)
-    inp = self.feat2tensor(imgfeat)
-
-    # 정적 길이 어서션(항상 H_full 기준)
-    H = H_full
     assert all(x.shape[:2] == (B * K, H + 1) for x in jax.tree.leaves(imgfeat))
     assert all(x.shape[:2] == (B * K, H + 1) for x in jax.tree.leaves(imgact))
-
-    # ===== 여기서부터 "마스킹" =====
-    # 1) 동적으로 쓰고 싶은 길이 H_use 계산(스칼라 tracer OK)
-    true_count  = jnp.sum(jnp.asarray(task_shift_result, dtype=jnp.int32))
-    false_count = task_shift_result.size - true_count
-    H_use = jnp.where(true_count > false_count, H_full // 2, H_full)  # tracer scalar
-
-    # 2) (H+1) 길이의 시간 마스크 만들기
-    #    - imag_loss 내부 weight는 con으로부터 만들어지고, 주로 con[:, :-1]을 사용
-    #    - 따라서 time_mask는 길이 H+1로 만들고 con 전체에 곱해주면 됨
-    t = jnp.arange(H_full, dtype=jnp.int32)           # 0..H-1 (전이 스텝 수 H)
-    mask_steps = (t < H_use).astype(jnp.float32)      # 길이 H
-    time_mask = jnp.concatenate([jnp.ones((1,), jnp.float32), mask_steps], axis=0)  # (H+1,)
-
-    # 3) con 예측에 마스크 적용
-    inp = self.feat2tensor(imgfeat)                   # (B*K, H+1, feat_dim)
-    con_pred = self.con(inp, 2).prob(1)               # (B*K, H+1)
-    con_masked = con_pred * time_mask[None, :]        # 뒤쪽은 0 → weight가 0이 됨
-
-    # _, imgfeat, imgprevact = self.dyn.imagine(starts, policyfn, H, training)
-    
+    inp = self.feat2tensor(imgfeat)
     los, imgloss_out, mets = imag_loss(
         imgact,
         self.rew(inp, 2).pred(),
-        con_masked,
-        # self.con(inp, 2).prob(1),
+        self.con(inp, 2).prob(1),
         self.pol(inp, 2),
         self.val(inp, 2),
         self.slowval(inp, 2),

@@ -213,34 +213,38 @@ def make_logger(config):
 
 
 def make_replay(config, folder, mode='train'):
-  if mode == 'decision_transformer':
-        # DT는 최신 데이터만 필요하므로 작고 빠른 온라인 버퍼를 사용합니다.
-        # batch_length 만큼의 trajectory를 몇 개만 저장할 수 있는 작은 크기면 충분합니다.
-        # 예: 최근 5개의 배치 시퀀스를 저장할 용량
-        dt_length = 20 # DT가 분석할 시퀀스 길이, n_ctx // 3
-        dt_batch_size = 32
-        dt_capacity = dt_batch_size * dt_length * 5 
-        
-        
-        directory = elements.Path(config.logdir) / folder
-        if config.replicas > 1:
-            directory /= f'{config.replica:05}'
+  # [수정 1] Dreamer 학습에 필요한 시퀀스 길이를 먼저 계산합니다.
+  # 이 길이가 JAX가 함수를 컴파일하는 기준이 됩니다.
+  # train 모드를 기준으로 길이를 계산해야 합니다.
+  batlen = config.batch_length
+  consec = config.consec_train
+  dreamer_length = consec * batlen + config.replay_context
 
-        # selector를 직접 생성하여 sampler로 설정
-        latest_selector = embodied.replay.selectors.Latest()
-        return embodied.replay.Replay(
-            length=dt_length,
-            capacity=int(dt_capacity),
-            online=True,
-            chunksize=1024,
-            directory=directory,
-            selector=latest_selector
-        )
+  if mode == 'decision_transformer':
+      # DT는 최신 데이터만 필요하므로 작고 빠른 온라인 버퍼를 사용합니다.
+      dt_batch_size = 32
+      
+      # DT가 저장할 시퀀스 길이를 늘렸으므로, capacity도 적절히 조절합니다.
+      # 예: 길이 65짜리 시퀀스 5개 배치 분량 저장
+      dt_capacity = dt_batch_size * dreamer_length * 5 
+      
+      directory = elements.Path(config.logdir) / folder
+      if config.replicas > 1:
+          directory /= f'{config.replica:05}'
+
+      latest_selector = embodied.replay.selectors.Latest()
+      return embodied.replay.Replay(
+          length=dreamer_length,
+          capacity=int(dt_capacity),
+          online=True,
+          chunksize=1024,
+          directory=directory,
+          selector=latest_selector
+      )
   
-  batlen = config.batch_length if mode == 'train'  else config.report_length
-  consec = config.consec_train if mode == 'train' else config.consec_report
+  # 이전에 계산한 dreamer_length를 그대로 사용합니다.
+  length = dreamer_length
   capacity = config.replay.size if mode == 'train' else config.replay.size / 10
-  length = consec * batlen + config.replay_context
   assert config.batch_size * length <= capacity
 
   directory = elements.Path(config.logdir) / folder
@@ -315,7 +319,7 @@ def make_env(config, index, **overrides):
       'minigrid': lambda task, **kw: importlib.import_module(
         'embodied.envs.minigrid').Minigrid(
             task=task,
-            fully_observable=True,
+            fully_observable=False,
             hide_mission=True,
         ),
   }[suite]
